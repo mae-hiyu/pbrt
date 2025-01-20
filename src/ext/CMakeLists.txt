@@ -171,3 +171,13 @@ add_subdirectory (glad)
 set_property (TARGET glfw PROPERTY FOLDER "ext")
 set_property (TARGET glad PROPERTY FOLDER "ext")
 
+##########################################################################
+# tsv
+
+set (tsv_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/tsv PARENT_SCOPE)
+
+add_library (tsv_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/tsv/sampling-tsvlight.cpp)
+
+set_property (TARGET tsv_lib PROPERTY FOLDER "ext")
+
+target_include_directories(tsv_lib PRIVATE ${CMAKE_SOURCE_DIR}/src)

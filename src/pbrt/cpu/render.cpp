@@ -19,6 +19,9 @@
 #include <pbrt/util/colorspace.h>
 #include <pbrt/util/parallel.h>
 
+#include <ext/tsv/spectrum-tsvlight.h>
+#include <random>
+
 namespace pbrt {
 
 void RenderCPU(BasicScene &parsedScene) {
@@ -103,8 +106,13 @@ void RenderCPU(BasicScene &parsedScene) {
     LOG_VERBOSE("Memory used after scene creation: %d", GetCurrentRSS());
 
     if (Options->pixelMaterial) {
-        SampledWavelengths lambda = SampledWavelengths::SampleUniform(0.5f);
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_real_distribution<float> dist(0.0f, 1.0f);
+        Float u = dist(gen);
+        SampledWavelengths lambda = SampledXYZWavelengths::SampleTsv(u, Lambda_min, Lambda_max, 4, 4, 4);
 
+        std::cout << lambda.ToString() << std::endl;
         CameraSample cs;
         cs.pFilm = *Options->pixelMaterial + Vector2f(0.5f, 0.5f);
         cs.time = 0.5f;
