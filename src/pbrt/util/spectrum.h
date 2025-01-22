@@ -385,6 +385,41 @@ class SampledWavelengths {
     return swl;
     }
 
+    PBRT_CPU_GPU
+    static SampledWavelengths SampleTsvLight(Float u, Float lambda_min = Lambda_min,
+                                            Float lambda_max = Lambda_max) {
+        SampledWavelengths swl;
+        for(int i = 0; i < x_size; ++i) {
+            Float up = u + Float(i) / x_size;
+            if(up > 1)
+                up -= 1;
+
+            swl.lambda[i] = SampleLightXyzXWavelengths(up);
+            // swl.pdf[i] = XyzXWavelengthsPDF(swl.lambda[i]);
+        }
+        for(int i = 0; i < y_size; ++i) {
+            Float up = u + Float(i) / y_size;
+            if(up > 1)
+                up -= 1;
+
+            swl.lambda[x_size + i] = SampleLightXyzYWavelengths(up);
+            // swl.pdf[x_size + i] = XyzYWavelengthsPDF(swl.lambda[x_size + i]);
+        }
+        for(int i = 0; i < z_size; ++i) {
+            Float up = u + Float(i) / z_size;
+            if(up > 1)
+                up -= 1;
+
+            swl.lambda[x_size + y_size + i] = SampleLightXyzZWavelengths(up);
+            // swl.pdf[x_size + y_size + i] = XyzZWavelengthsPDF(swl.lambda[x_size + y_size + i]);
+        }
+
+        for (int i = 0; i < NSpectrumSamples; ++i)
+            swl.pdf[i] = 1 / (lambda_max - lambda_min);
+
+        return swl;
+    }
+
   private:
     // SampledWavelengths Private Members
     friend struct SOA<SampledWavelengths>;

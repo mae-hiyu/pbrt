@@ -818,4 +818,116 @@ PBRT_CPU_GPU Float XyzZWavelengthsPDF(Float lambda) {
     return interpolatedValue * normFactor;
 }
 
+PBRT_CPU_GPU Float SampleLightXyzXWavelengths(Float u) {
+    const DenselySampledSpectrum &xSpectrum = Spectra::X();
+    const Spectrum f12 = GetNamedSpectrum("f12");
+
+    // 正規化: xSpectrumとf12の値を正規化
+    Float sumX = 0.0, sumF12 = 0.0;
+    for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+        sumX += xSpectrum(lambda);
+        sumF12 += f12(lambda);
+    }
+
+    // xSpectrumとf12を正規化
+    Float normFactorX = 1.0 / sumX;
+    Float normFactorF12 = 1.0 / sumF12;
+
+    // CDFのための配列
+    pstd::vector<Float> cdf(Lambda_max - Lambda_min + 1, 0.0);
+    Float cumulativeSum = 0.0;
+
+    // xSpectrumとf12の確率密度を掛け合わせてCDFを計算
+    for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+        Float probabilityDensity = xSpectrum(lambda) * normFactorX * f12(lambda) * normFactorF12;
+        cumulativeSum += probabilityDensity;
+        cdf[lambda - Lambda_min] = cumulativeSum;
+    }
+
+    // 逆変換サンプリング: 累積分布関数を基にlambdaを決定
+    for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+        if (u <= cdf[lambda - Lambda_min]) {
+            return lambda;
+        }
+    }
+
+    // 万が一、uがCDFを超えた場合に備えて、最大のlambdaを返す
+    return Lambda_max;
+}
+
+PBRT_CPU_GPU Float SampleLightXyzYWavelengths(Float u) {
+    const DenselySampledSpectrum &ySpectrum = Spectra::Y();
+    const Spectrum f12 = GetNamedSpectrum("f12");
+
+    // 正規化: xSpectrumとf12の値を正規化
+    Float sumX = 0.0, sumF12 = 0.0;
+    for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+        sumX += ySpectrum(lambda);
+        sumF12 += f12(lambda);
+    }
+
+    // xSpectrumとf12を正規化
+    Float normFactorX = 1.0 / sumX;
+    Float normFactorF12 = 1.0 / sumF12;
+
+    // CDFのための配列
+    pstd::vector<Float> cdf(Lambda_max - Lambda_min + 1, 0.0);
+    Float cumulativeSum = 0.0;
+
+    // xSpectrumとf12の確率密度を掛け合わせてCDFを計算
+    for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+        Float probabilityDensity = ySpectrum(lambda) * normFactorX * f12(lambda) * normFactorF12;
+        cumulativeSum += probabilityDensity;
+        cdf[lambda - Lambda_min] = cumulativeSum;
+    }
+
+    // 逆変換サンプリング: 累積分布関数を基にlambdaを決定
+    for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+        if (u <= cdf[lambda - Lambda_min]) {
+            return lambda;
+        }
+    }
+
+    // 万が一、uがCDFを超えた場合に備えて、最大のlambdaを返す
+    return Lambda_max;
+}
+
+PBRT_CPU_GPU Float SampleLightXyzZWavelengths(Float u) {
+    const DenselySampledSpectrum &zSpectrum = Spectra::Z();
+    const Spectrum f12 = GetNamedSpectrum("f12");
+
+    // 正規化: xSpectrumとf12の値を正規化
+    Float sumX = 0.0, sumF12 = 0.0;
+    for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+        sumX += zSpectrum(lambda);
+        sumF12 += f12(lambda);
+    }
+
+    // xSpectrumとf12を正規化
+    Float normFactorX = 1.0 / sumX;
+    Float normFactorF12 = 1.0 / sumF12;
+
+    // CDFのための配列
+    pstd::vector<Float> cdf(Lambda_max - Lambda_min + 1, 0.0);
+    Float cumulativeSum = 0.0;
+
+    // xSpectrumとf12の確率密度を掛け合わせてCDFを計算
+    for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+        Float probabilityDensity = zSpectrum(lambda) * normFactorX * f12(lambda) * normFactorF12;
+        cumulativeSum += probabilityDensity;
+        cdf[lambda - Lambda_min] = cumulativeSum;
+    }
+
+    // 逆変換サンプリング: 累積分布関数を基にlambdaを決定
+    for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+        if (u <= cdf[lambda - Lambda_min]) {
+            return lambda;
+        }
+    }
+
+    // 万が一、uがCDFを超えた場合に備えて、最大のlambdaを返す
+    return Lambda_max;
+}
+
+
 }  // namespace pbrt
