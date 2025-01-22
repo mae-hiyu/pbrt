@@ -29,6 +29,7 @@
 #include <string>
 #include <thread>
 #include <vector>
+#include <iostream>
 
 namespace pbrt {
 
@@ -94,9 +95,12 @@ class PixelSensor {
     PBRT_CPU_GPU
     RGB ToSensorRGB(SampledSpectrum L, const SampledWavelengths &lambda) const {
         L = SafeDiv(L, lambda.PDF());
-        return imagingRatio * RGB((r_bar.Sample(lambda) * L).Average(),
-                                  (g_bar.Sample(lambda) * L).Average(),
-                                  (b_bar.Sample(lambda) * L).Average());
+        return 0.536531398 * imagingRatio * XYZFromSensorRGB * RGB((L[0] + L[1] + L[2] + L[3]) / 4,
+                            (L[4] + L[5] + L[6] + L[7]) / 4,
+                            (L[8] + L[9] + L[10] + L[11]) / 4);
+        // return imagingRatio * RGB((r_bar.Sample(lambda) * L).Average(),
+        //                           (g_bar.Sample(lambda) * L).Average(),
+        //                           (b_bar.Sample(lambda) * L).Average());
     }
 
     // PixelSensor Public Members
@@ -210,7 +214,9 @@ class FilmBase {
 
     PBRT_CPU_GPU
     SampledWavelengths SampleWavelengths(Float u) const {
-        return SampledWavelengths::SampleVisible(u);
+        SampledWavelengths lambda = SampledWavelengths::SampleTsv(u, Lambda_min, Lambda_max);
+        // std::cout << lambda.ToString() << std::endl;
+        return lambda;
     }
 
     PBRT_CPU_GPU
@@ -406,7 +412,9 @@ class SpectralFilm : public FilmBase {
 
     PBRT_CPU_GPU
     SampledWavelengths SampleWavelengths(Float u) const {
-        return SampledWavelengths::SampleUniform(u, lambdaMin, lambdaMax);
+        SampledWavelengths lambda = SampledWavelengths::SampleTsv(u, Lambda_min, Lambda_max);
+        // std::cout << lambda.ToString() << std::endl;
+        return lambda;
     }
 
     PBRT_CPU_GPU

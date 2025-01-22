@@ -655,4 +655,167 @@ std::string SummedAreaTable::ToString() const {
     return StringPrintf("[ SummedAreaTable sum: %s ]", sum);
 }
 
+PBRT_CPU_GPU Float SampleXyzXWavelengths(Float u) {
+  const DenselySampledSpectrum &xSpectrum = Spectra::X();
+  // normalize 
+  Float sum = 0.0;
+  for (int lambda = Lambda_min; lambda < Lambda_max + 1; ++lambda){
+    sum += xSpectrum(lambda);
+  }
+
+  Float normFactor = 1.0 / sum;
+
+    // Compute the cumulative distribution function (CDF)
+  pstd::vector<Float> cdf(Lambda_max - Lambda_min + 1, 0.0);
+  Float cumulativeSum = 0.0;
+  for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+      cumulativeSum += xSpectrum(lambda) * normFactor;
+      cdf[lambda - Lambda_min] = cumulativeSum;
+  }
+
+  // Perform inverse transform sampling
+  // Find the wavelength corresponding to the sampled value `u`
+  for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+      if (u <= cdf[lambda - Lambda_min]) {
+          return lambda;
+      }
+  }
+}
+
+PBRT_CPU_GPU Float XyzXWavelengthsPDF(Float lambda) {
+    const DenselySampledSpectrum &xSpectrum = Spectra::X();
+
+    // 波長の範囲チェック
+    if (lambda < Float(Lambda_min) || lambda > Float(Lambda_max)) 
+        return 0.0f;
+
+    // 累積値の計算
+    Float sum = 0.0;
+    for (int i = Lambda_min; i <= Lambda_max; ++i) {
+        sum += xSpectrum(i);
+    }
+    if (sum == 0.0) return 0.0f;
+
+    Float normFactor = 1.0 / sum;
+
+    // 線形補間で PDF を計算
+    Float low = std::floor(lambda);
+    Float high = std::ceil(lambda);
+
+    Float valueLow = xSpectrum(static_cast<int>(low));
+    Float valueHigh = xSpectrum(static_cast<int>(high));
+
+    Float interpolatedValue = Lerp(lambda - low, valueLow, valueHigh);
+    return interpolatedValue * normFactor;
+}
+
+PBRT_CPU_GPU Float SampleXyzYWavelengths(Float u) {
+  const DenselySampledSpectrum &ySpectrum = Spectra::Y();
+  // normalize 
+  Float sum = 0.0;
+  for (int lambda = Lambda_min; lambda < Lambda_max + 1; ++lambda){
+    sum += ySpectrum(lambda);
+  }
+  
+  Float normFactor = 1.0 / sum;
+
+    // Compute the cumulative distribution function (CDF)
+  pstd::vector<Float> cdf(Lambda_max - Lambda_min + 1, 0.0);
+  Float cumulativeSum = 0.0;
+  for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+      cumulativeSum += ySpectrum(lambda) * normFactor;
+      cdf[lambda - Lambda_min] = cumulativeSum;
+  }
+
+  // Perform inverse transform sampling
+  // Find the wavelength corresponding to the sampled value `u`
+  for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+      if (u <= cdf[lambda - Lambda_min]) {
+          return lambda;
+      }
+  }
+}
+
+PBRT_CPU_GPU Float XyzYWavelengthsPDF(Float lambda) {
+    const DenselySampledSpectrum &ySpectrum = Spectra::Y();
+
+    // 波長の範囲チェック
+    if (lambda < Float(Lambda_min) || lambda > Float(Lambda_max)) 
+        return 0.0f;
+
+    // 累積値の計算
+    Float sum = 0.0;
+    for (int i = Lambda_min; i <= Lambda_max; ++i) {
+        sum += ySpectrum(i);
+    }
+    if (sum == 0.0) return 0.0f;
+
+    Float normFactor = 1.0 / sum;
+
+    // 線形補間で PDF を計算
+    Float low = std::floor(lambda);
+    Float high = std::ceil(lambda);
+
+    Float valueLow = ySpectrum(static_cast<int>(low));
+    Float valueHigh = ySpectrum(static_cast<int>(high));
+
+    Float interpolatedValue = Lerp(lambda - low, valueLow, valueHigh);
+    return interpolatedValue * normFactor;
+}
+
+PBRT_CPU_GPU Float SampleXyzZWavelengths(Float u) {
+  const DenselySampledSpectrum &zSpectrum = Spectra::Z();
+    // normalize 
+  Float sum = 0.0;
+  for (int lambda = Lambda_min; lambda < Lambda_max + 1; ++lambda){
+    sum += zSpectrum(lambda);
+  }
+  
+  Float normFactor = 1.0 / sum;
+
+    // Compute the cumulative distribution function (CDF)
+  pstd::vector<Float> cdf(Lambda_max - Lambda_min + 1, 0.0);
+  Float cumulativeSum = 0.0;
+  for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+      cumulativeSum += zSpectrum(lambda) * normFactor;
+      cdf[lambda - Lambda_min] = cumulativeSum;
+  }
+
+  // Perform inverse transform sampling
+  // Find the wavelength corresponding to the sampled value `u`
+  for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+      if (u <= cdf[lambda - Lambda_min]) {
+          return lambda;
+          
+      }
+  }
+}
+
+PBRT_CPU_GPU Float XyzZWavelengthsPDF(Float lambda) {
+    const DenselySampledSpectrum &zSpectrum = Spectra::Z();
+
+    // 波長の範囲チェック
+    if (lambda < Float(Lambda_min) || lambda > Float(Lambda_max)) 
+        return 0.0f;
+
+    // 累積値の計算
+    Float sum = 0.0;
+    for (int i = Lambda_min; i <= Lambda_max; ++i) {
+        sum += zSpectrum(i);
+    }
+    if (sum == 0.0) return 0.0f;
+
+    Float normFactor = 1.0 / sum;
+
+    // 線形補間で PDF を計算
+    Float low = std::floor(lambda);
+    Float high = std::ceil(lambda);
+
+    Float valueLow = zSpectrum(static_cast<int>(low));
+    Float valueHigh = zSpectrum(static_cast<int>(high));
+
+    Float interpolatedValue = Lerp(lambda - low, valueLow, valueHigh);
+    return interpolatedValue * normFactor;
+}
+
 }  // namespace pbrt

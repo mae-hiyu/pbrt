@@ -110,7 +110,7 @@ void RenderCPU(BasicScene &parsedScene) {
         std::mt19937 gen(rd());
         std::uniform_real_distribution<float> dist(0.0f, 1.0f);
         Float u = dist(gen);
-        SampledWavelengths lambda = SampledXYZWavelengths::SampleTsv(u, Lambda_min, Lambda_max, 4, 4, 4);
+        SampledWavelengths lambda = SampledWavelengths::SampleTsv(u, Lambda_min, Lambda_max);
 
         std::cout << lambda.ToString() << std::endl;
         CameraSample cs;

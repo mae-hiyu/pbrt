@@ -170,6 +170,18 @@ PBRT_CPU_GPU inline Float SampleVisibleWavelengths(Float u) {
     return 538 - 138.888889f * std::atanh(0.85691062f - 1.82750197f * u);
 }
 
+PBRT_CPU_GPU Float SampleXyzXWavelengths(Float u);
+
+PBRT_CPU_GPU Float XyzXWavelengthsPDF(Float lambda);
+
+PBRT_CPU_GPU Float SampleXyzYWavelengths(Float u);
+
+PBRT_CPU_GPU Float XyzYWavelengthsPDF(Float lambda);
+
+PBRT_CPU_GPU Float SampleXyzZWavelengths(Float u);
+
+PBRT_CPU_GPU Float XyzZWavelengthsPDF(Float lambda);
+
 PBRT_CPU_GPU inline pstd::array<Float, 3> SampleUniformTriangle(Point2f u) {
     Float b0, b1;
     if (u[0] < u[1]) {

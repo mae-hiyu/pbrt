@@ -107,7 +107,7 @@ pstd::optional<Spectrum> PiecewiseLinearSpectrum::Read(const std::string &fn,
                                                        Allocator alloc) {
     std::vector<Float> vals = ReadFloatFile(fn);
     if (vals.empty()) {
-        Warning("%s: unable to read spectrum file.", fn);
+        Warning("%s:  file.", fn);
         return {};
     } else {
         if (vals.size() % 2 != 0) {
