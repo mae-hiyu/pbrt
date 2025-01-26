@@ -438,6 +438,7 @@ SampledSpectrum SimplePathIntegrator::Li(RayDifferential ray, SampledWavelengths
                     Vector3f wi = ls->wi;
                     SampledSpectrum f = bsdf.f(wo, wi) * AbsDot(wi, isect.shading.n);
                     if (f && Unoccluded(isect, ls->pLight))
+                        // L += beta * f * ls->L / (sampledLight->p * ls->pdf);
                         L += beta * f * ls->L / (sampledLight->p * ls->pdf);
                 }
             }

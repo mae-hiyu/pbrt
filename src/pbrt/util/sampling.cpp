@@ -929,5 +929,29 @@ PBRT_CPU_GPU Float SampleLightXyzZWavelengths(Float u) {
     return Lambda_max;
 }
 
+PBRT_CPU_GPU Float LightPDF(Float lambda) {
+    const Spectrum f12 = GetNamedSpectrum("f12");
+
+    // xSpectrumとf12を正規化
+    Float sumF12 = 0.0;
+
+    for (int i = Lambda_min; i <= Lambda_max; ++i) {
+        sumF12 += f12(i);
+    }
+    if (sumF12 == 0.0) return 0.0f;
+
+    Float normFactor = 1.0 / sumF12;
+
+    // 線形補間で PDF を計算
+    Float low = std::floor(lambda);
+    Float high = std::ceil(lambda);
+
+    Float valueLow = f12(static_cast<int>(low));
+    Float valueHigh = f12(static_cast<int>(high));
+
+    Float interpolatedValue = Lerp(lambda - low, valueLow, valueHigh);
+    return interpolatedValue * normFactor;
+}
+
 
 }  // namespace pbrt
