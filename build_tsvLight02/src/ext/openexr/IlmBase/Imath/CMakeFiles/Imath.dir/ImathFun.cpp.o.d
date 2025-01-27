@@ -1,0 +1,22 @@
+src/ext/openexr/IlmBase/Imath/CMakeFiles/Imath.dir/ImathFun.cpp.o: \
+  /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathFun.cpp \
+  /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathFun.h \
+  /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathExport.h \
+  /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathLimits.h \
+  /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathNamespace.h \
+  /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/config/IlmBaseConfig.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/float.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__config \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__config_site \
+  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/float.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/float.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/cdefs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_symbol_aliasing.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_posix_availability.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/machine/limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/arm/limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/arm/_limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/syslimits.h \
+  /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathInt64.h
