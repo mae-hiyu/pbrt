@@ -95,12 +95,6 @@ namespace XYZSpectra {
 
 void Init(Allocator alloc);
 
-PiecewiseLinearSpectrum *xlight, *ylight, *zlight;
-
-void Init(Allocator alloc) {
-  
-}
-
 PBRT_CPU_GPU
 inline const PiecewiseLinearSpectrum &Xlight() {
 #ifdef PBRT_IS_GPU_CODE
@@ -110,10 +104,33 @@ inline const PiecewiseLinearSpectrum &Xlight() {
     extern PiecewiseLinearSpectrum *xlight;
     return *xlight;
 #endif
+}
 
+PBRT_CPU_GPU
+inline const PiecewiseLinearSpectrum &Ylight() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU DenselySampledSpectrum *xlightGPU;
+    return *ylightGPU;
+#else
+    extern PiecewiseLinearSpectrum *ylight;
+    return *ylight;
+#endif
+}
+
+PBRT_CPU_GPU
+inline const PiecewiseLinearSpectrum &Zlight() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU DenselySampledSpectrum *xlightGPU;
+    return *zlightGPU;
+#else
+    extern PiecewiseLinearSpectrum *zlight;
+    return *zlight;
+#endif
+
+}
 }
 // namespace Spectra
 }
-}
 // namespace pbrt
+
 #endif
