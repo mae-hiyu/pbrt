@@ -84,7 +84,7 @@ class PixelSensor {
           g_bar(&Spectra::Y(), alloc),
           b_bar(&Spectra::Z(), alloc),
           imagingRatio(imagingRatio) {
-        // Compute white balancing matrix for XYZ _PixelSensor_
+        // Compute white balancing matrix for XYZ _PixelSensor_……
         if (sensorIllum) {
             Point2f sourceWhite = SpectrumToXYZ(sensorIllum).xy();
             Point2f targetWhite = outputColorSpace->w;
@@ -95,6 +95,13 @@ class PixelSensor {
     PBRT_CPU_GPU
     RGB ToSensorRGB(SampledSpectrum L, const SampledWavelengths &lambda) const {
         L = SafeDiv(L,lambda.PDF());
+        
+
+        // SampledSpectrum light;
+        // for (int i = 0; i < 12; i++) {
+        //     light[i] = LightPDF(lambda[i]);
+        // }
+        // L = SafeDiv(L,light);
         return 0.536531398 * imagingRatio * XYZFromSensorRGB * RGB((L[0] + L[1] + L[2] + L[3]) / 4,
                             (L[4] + L[5] + L[6] + L[7]) / 4,
                             (L[8] + L[9] + L[10] + L[11]) / 4);

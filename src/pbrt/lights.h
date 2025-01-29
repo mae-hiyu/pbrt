@@ -455,8 +455,14 @@ class DiffuseAreaLight : public LightBase {
             RGBIlluminantSpectrum spec(*imageColorSpace, ClampZero(rgb));
             return scale * spec.Sample(lambda);
 
-        } else
+        } else {
+            // SampledSpectrum uniform;
+            // for (int i = 0; i < NSpectrumSamples; ++i)
+            //     uniform[i] = 1 / 600.0;
+            // return scale * uniform;
+
             return scale * Lemit->Sample(lambda);
+        }
     }
 
     PBRT_CPU_GPU
