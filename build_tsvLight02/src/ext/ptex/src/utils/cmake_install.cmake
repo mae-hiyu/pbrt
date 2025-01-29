@@ -1,4 +1,4 @@
-# Install script for directory: /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/utils
+# Install script for directory: /Users/hiyu/Tools/pbrt/src/ext/ptex/src/utils
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/utils/ptxinfo")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/utils/ptxinfo")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/ptxinfo" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/ptxinfo")
     if(CMAKE_INSTALL_DO_STRIP)

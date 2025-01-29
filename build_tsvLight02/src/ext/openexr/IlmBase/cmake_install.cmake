@@ -1,4 +1,4 @@
-# Install script for directory: /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase
+# Install script for directory: /Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,15 +39,15 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/config/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/Half/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/Iex/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/IexMath/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/Imath/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/IlmThread/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/HalfTest/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/IexTest/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/ImathTest/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/IlmBase/config/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/IlmBase/Half/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/IlmBase/Iex/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/IlmBase/IexMath/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/IlmBase/Imath/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/IlmBase/IlmThread/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/IlmBase/HalfTest/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/IlmBase/IexTest/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/IlmBase/ImathTest/cmake_install.cmake")
 
 endif()
 

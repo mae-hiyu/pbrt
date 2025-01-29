@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/maedahiyu/tools/pbrt-v4/src/pbrt/cmd/soac.cpp" "CMakeFiles/soac.dir/src/pbrt/cmd/soac.cpp.o" "gcc" "CMakeFiles/soac.dir/src/pbrt/cmd/soac.cpp.o.d"
+  "/Users/hiyu/Tools/pbrt/src/pbrt/cmd/soac.cpp" "CMakeFiles/soac.dir/src/pbrt/cmd/soac.cpp.o" "gcc" "CMakeFiles/soac.dir/src/pbrt/cmd/soac.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

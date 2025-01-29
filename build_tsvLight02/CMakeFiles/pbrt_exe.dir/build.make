@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.27.4/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.27.9/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/Cellar/cmake/3.27.4/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.27.9/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/maedahiyu/tools/pbrt-v4
+CMAKE_SOURCE_DIR = /Users/hiyu/Tools/pbrt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02
+CMAKE_BINARY_DIR = /Users/hiyu/Tools/pbrt/build_tsvLight02
 
 # Include any dependencies generated for this target.
 include CMakeFiles/pbrt_exe.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/pbrt_exe.dir/progress.make
 include CMakeFiles/pbrt_exe.dir/flags.make
 
 CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.o: CMakeFiles/pbrt_exe.dir/flags.make
-CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.o: /Users/maedahiyu/tools/pbrt-v4/src/pbrt/cmd/pbrt.cpp
+CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.o: /Users/hiyu/Tools/pbrt/src/pbrt/cmd/pbrt.cpp
 CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.o: CMakeFiles/pbrt_exe.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.o -MF CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.o.d -o CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.o -c /Users/maedahiyu/tools/pbrt-v4/src/pbrt/cmd/pbrt.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.o -MF CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.o.d -o CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.o -c /Users/hiyu/Tools/pbrt/src/pbrt/cmd/pbrt.cpp
 
 CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/maedahiyu/tools/pbrt-v4/src/pbrt/cmd/pbrt.cpp > CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hiyu/Tools/pbrt/src/pbrt/cmd/pbrt.cpp > CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.i
 
 CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maedahiyu/tools/pbrt-v4/src/pbrt/cmd/pbrt.cpp -o CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hiyu/Tools/pbrt/src/pbrt/cmd/pbrt.cpp -o CMakeFiles/pbrt_exe.dir/src/pbrt/cmd/pbrt.cpp.s
 
 # Object files for target pbrt_exe
 pbrt_exe_OBJECTS = \
@@ -102,14 +102,14 @@ pbrt: src/ext/double-conversion/libdouble-conversion.a
 pbrt: src/ext/utf8proc/libutf8proc.a
 pbrt: src/ext/glfw/src/libglfw3.a
 pbrt: src/ext/glad/libglad.a
-pbrt: /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL.tbd
+pbrt: /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL.tbd
 pbrt: src/ext/openexr/IlmBase/IexMath/libIexMath-2_5.a
 pbrt: src/ext/openexr/IlmBase/IlmThread/libIlmThread-2_5.a
 pbrt: src/ext/openexr/IlmBase/Iex/libIex-2_5.a
-pbrt: /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/lib/libz.tbd
-pbrt: /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/lib/libz.tbd
+pbrt: /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/lib/libz.tbd
+pbrt: /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/lib/libz.tbd
 pbrt: CMakeFiles/pbrt_exe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable pbrt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable pbrt"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pbrt_exe.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -121,6 +121,6 @@ CMakeFiles/pbrt_exe.dir/clean:
 .PHONY : CMakeFiles/pbrt_exe.dir/clean
 
 CMakeFiles/pbrt_exe.dir/depend:
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/maedahiyu/tools/pbrt-v4 /Users/maedahiyu/tools/pbrt-v4 /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02 /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02 /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles/pbrt_exe.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/hiyu/Tools/pbrt /Users/hiyu/Tools/pbrt /Users/hiyu/Tools/pbrt/build_tsvLight02 /Users/hiyu/Tools/pbrt/build_tsvLight02 /Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles/pbrt_exe.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/pbrt_exe.dir/depend
 

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath
+# Install script for directory: /Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/Imath/libImath-2_5.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/IlmBase/Imath/libImath-2_5.a")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libImath-2_5.a" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libImath-2_5.a")
     execute_process(COMMAND "/Library/Developer/CommandLineTools/usr/bin/ranlib" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libImath-2_5.a")
@@ -47,39 +47,39 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/OpenEXR" TYPE FILE FILES
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathBoxAlgo.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathBox.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathColorAlgo.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathColor.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathEuler.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathExc.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathExport.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathForward.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathFrame.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathFrustum.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathFrustumTest.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathFun.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathGL.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathGLU.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathHalfLimits.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathInt64.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathInterval.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathLimits.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathLineAlgo.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathLine.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathMath.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathMatrixAlgo.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathMatrix.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathNamespace.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathPlane.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathPlatform.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathQuat.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathRandom.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathRoots.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathShear.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathSphere.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathVecAlgo.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath/ImathVec.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathBoxAlgo.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathBox.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathColorAlgo.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathColor.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathEuler.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathExc.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathExport.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathForward.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathFrame.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathFrustum.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathFrustumTest.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathFun.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathGL.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathGLU.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathHalfLimits.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathInt64.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathInterval.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathLimits.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathLineAlgo.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathLine.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathMath.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathMatrixAlgo.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathMatrix.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathNamespace.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathPlane.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathPlatform.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathQuat.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathRandom.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathRoots.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathShear.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathSphere.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathVecAlgo.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathVec.h"
     )
 endif()
 

@@ -1,22 +1,22 @@
 
-if (NOT EXISTS "/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/glfw/install_manifest.txt")
-    message(FATAL_ERROR "Cannot find install manifest: \"/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/glfw/install_manifest.txt\"")
+if (NOT EXISTS "/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/glfw/install_manifest.txt")
+    message(FATAL_ERROR "Cannot find install manifest: \"/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/glfw/install_manifest.txt\"")
 endif()
 
-file(READ "/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/glfw/install_manifest.txt" files)
+file(READ "/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/glfw/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 
 foreach (file ${files})
   message(STATUS "Uninstalling \"$ENV{DESTDIR}${file}\"")
   if (EXISTS "$ENV{DESTDIR}${file}")
-    exec_program("/opt/homebrew/Cellar/cmake/3.27.4/bin/cmake" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
+    exec_program("/opt/homebrew/Cellar/cmake/3.27.9/bin/cmake" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
                  OUTPUT_VARIABLE rm_out
                  RETURN_VALUE rm_retval)
     if (NOT "${rm_retval}" STREQUAL 0)
       MESSAGE(FATAL_ERROR "Problem when removing \"$ENV{DESTDIR}${file}\"")
     endif()
   elseif (IS_SYMLINK "$ENV{DESTDIR}${file}")
-    EXEC_PROGRAM("/opt/homebrew/Cellar/cmake/3.27.4/bin/cmake" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
+    EXEC_PROGRAM("/opt/homebrew/Cellar/cmake/3.27.9/bin/cmake" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
                  OUTPUT_VARIABLE rm_out
                  RETURN_VALUE rm_retval)
     if (NOT "${rm_retval}" STREQUAL 0)

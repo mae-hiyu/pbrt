@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/maedahiyu/tools/pbrt-v4/src/ext/skymodel/ArHosekSkyModel.c" "CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o" "gcc" "CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o.d"
+  "/Users/hiyu/Tools/pbrt/src/ext/skymodel/ArHosekSkyModel.c" "CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o" "gcc" "CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

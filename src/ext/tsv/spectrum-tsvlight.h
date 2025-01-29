@@ -12,15 +12,6 @@ namespace pbrt {
 
 class SampledXYZWavelengths : public SampledWavelengths {
   public:
-      static constexpr int x_size = 4;  // 宣言
-      static constexpr int y_size = 4;
-      static constexpr int z_size = 4;
-
-    // static void setWavelengthSize(int x, int y, int z) {
-    //   x_size = x;
-    //   y_size = y;
-    //   z_size = z;
-    // }
 
     PBRT_CPU_GPU
     static SampledXYZWavelengths SampleTsv(Float u, Float lambda_min = Lambda_min,
@@ -28,39 +19,101 @@ class SampledXYZWavelengths : public SampledWavelengths {
       SampledXYZWavelengths swl;
       // swl.setWavelengthSize(x, y, z);
 
-      for(int i = 0; i < x_size; ++i) {
-        Float up = u + Float(i) / x_size;
+      for(int i = 0; i < swl.x_size; ++i) {
+        Float up = u + Float(i) / swl.x_size;
         if(up > 1)
           up -= 1;
 
         swl.lambda[i] = SampleXyzXWavelengths(up);
-        swl.pdf[i] = XyzXWavelengthsPDF(swl.lambda[i]);        
+        swl.pdf[i] = 1;        
       }
-      for(int i = 0; i < y_size; ++i) {
-        Float up = u + Float(i) / y_size;
+      for(int i = 0; i < swl.y_size; ++i) {
+        Float up = u + Float(i) / swl.y_size;
         if(up > 1)
           up -= 1;
 
-        swl.lambda[x_size + i] = SampleXyzYWavelengths(up);
-        swl.pdf[x_size + i] = XyzYWavelengthsPDF(swl.lambda[x_size + i]);
+        swl.lambda[swl.x_size + i] = SampleXyzYWavelengths(up);
+        swl.pdf[swl.x_size + i] = 1;
       }
-      for(int i = 0; i < z_size; ++i) {
-        Float up = u + Float(i) / z_size;
+      for(int i = 0; i < swl.z_size; ++i) {
+        Float up = u + Float(i) / swl.z_size;
         if(up > 1)
           up -= 1;
 
-        swl.lambda[x_size + y_size + i] = SampleXyzZWavelengths(up);
-        swl.pdf[x_size + y_size + i] = XyzZWavelengthsPDF(swl.lambda[x_size + i]);
+        swl.lambda[swl.x_size + swl.y_size + i] = SampleXyzZWavelengths(up);
+        swl.pdf[swl.x_size + swl.y_size + i] = 1;
       }
-        std::cout << "!lambda!" << swl.lambda[2] << std::endl;
         return swl;
-      }
+    }
+
+    PBRT_CPU_GPU
+    static SampledXYZWavelengths SampleTsvLight(Float u, Float lambda_min = Lambda_min,
+                                         Float lambda_max = Lambda_max, int total_size = NSpectrumSamples) {
+    SampledXYZWavelengths swl;
+
+    // 確率に基づいたサンプル数の決定
+    swl.x_size = std::round(total_size * 0.437);
+    swl.y_size = std::round(total_size * 0.405);
+    swl.z_size = total_size - swl.x_size - swl.y_size;  // 誤差調整
+
+    for(int i = 0; i < swl.x_size; ++i) {
+        Float up = u + Float(i) / swl.x_size;
+        if(up > 1) up -= 1;
+
+        swl.lambda[i] = SampleLightXyzXWavelengths(up);
+        swl.pdf[i] = 1;
+    }
+
+    for(int i = 0; i < swl.y_size; ++i) {
+        Float up = u + Float(i) / swl.y_size;
+        if(up > 1) up -= 1;
+
+        swl.lambda[swl.x_size + i] = SampleLightXyzYWavelengths(up);
+        swl.pdf[swl.x_size + i] = 1;
+    }
+
+    for(int i = 0; i < swl.z_size; ++i) {
+        Float up = u + Float(i) / swl.z_size;
+        if(up > 1) up -= 1;
+
+        swl.lambda[swl.x_size + swl.y_size + i] = SampleLightXyzZWavelengths(up);
+        swl.pdf[swl.x_size + swl.y_size + i] = 1;
+    }
+    return swl;
+}
 
   private:
     // SampledWavelengths Private Members
     friend struct SOA<SampledXYZWavelengths>;
     pstd::array<Float, NSpectrumSamples> lambda, pdf;
+    int x_size;
+    int y_size;
+    int z_size;
 };
+
+namespace XYZSpectra {
+
+void Init(Allocator alloc);
+
+PiecewiseLinearSpectrum *xlight, *ylight, *zlight;
+
+void Init(Allocator alloc) {
+  
+}
+
+PBRT_CPU_GPU
+inline const PiecewiseLinearSpectrum &Xlight() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU DenselySampledSpectrum *xlightGPU;
+    return *xlightGPU;
+#else
+    extern PiecewiseLinearSpectrum *xlight;
+    return *xlight;
+#endif
+
+}
+// namespace Spectra
+}
 }
 // namespace pbrt
 #endif

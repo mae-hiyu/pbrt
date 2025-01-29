@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /Users/maedahiyu/tools/pbrt-v4/src/ext/double-conversion
-BuildDirectory: /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/double-conversion
+SourceDirectory: /Users/hiyu/Tools/pbrt/src/ext/double-conversion
+BuildDirectory: /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/double-conversion
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: MacBook-Air-2.local
+Site: MaedanoMac-mini.local
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Darwin-c++
@@ -27,8 +27,8 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/opt/homebrew/Cellar/cmake/3.27.4/bin/cmake" "/Users/maedahiyu/tools/pbrt-v4/src/ext/double-conversion"
-MakeCommand: /opt/homebrew/Cellar/cmake/3.27.4/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+ConfigureCommand: "/opt/homebrew/Cellar/cmake/3.27.9/bin/cmake" "/Users/hiyu/Tools/pbrt/src/ext/double-conversion"
+MakeCommand: /opt/homebrew/Cellar/cmake/3.27.9/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
 # version control

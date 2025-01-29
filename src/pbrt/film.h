@@ -94,26 +94,23 @@ class PixelSensor {
 
     PBRT_CPU_GPU
     RGB ToSensorRGB(SampledSpectrum L, const SampledWavelengths &lambda) const {
-        L = SafeDiv(L,lambda.PDF());
-        L = SafeDiv(L,lambda.PDF());
-        
 
         // SampledSpectrum light;
         // for (int i = 0; i < 12; i++) {
         //     light[i] = LightPDF(lambda[i]);
         // }
         // L = SafeDiv(L,light);
-        Float R, G, B;
-        for(int i = 0; i < x_size; ++i) {
-            R = L[i];
+        Float R = 0, G = 0, B = 0;
+        for(int i = 0; i < lambda.x_size; ++i) {
+            R += L[i];
         }
-        for(int i = 0; i < y_size; ++i) {
-            G = L[x_size + i];
+        for(int i = 0; i < lambda.y_size; ++i) {
+            G += L[lambda.x_size + i];
         }
-        for(int i = 0; i < z_size; ++i) {
-            B = L[x_size + y_size + i];
+        for(int i = 0; i < lambda.z_size; ++i) {
+            B += L[lambda.x_size + lambda.y_size + i];
         }
-        std::cout << "x_size, y_size, z_size : " << x_size << ", " << y_size << ", " << z_size << ", " << std::endl;  
+        //  std::cout << "x_size, y_size, z_size : " << lambda.x_size << ", " << lambda.y_size << ", " << lambda.z_size << ", " << std::endl;  
         return 0.536531398 * imagingRatio * XYZFromSensorRGB * RGB(R,
                             G ,
                             B);

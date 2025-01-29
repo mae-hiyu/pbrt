@@ -26,6 +26,8 @@
 
 #include <stdlib.h>
 
+#include <ext/tsv/spectrum-tsvlight.h>
+
 #ifdef PBRT_IS_WINDOWS
 #include <Windows.h>
 #endif  // PBRT_IS_WINDOWS
@@ -115,6 +117,7 @@ void InitPBRT(const PBRTOptions &opt) {
         ColorEncoding::Init(Allocator{});
         // Before RGBColorSpace::Init!
         Spectra::Init(Allocator{});
+        XYZSpectra::Init(Allocator{});
         RGBToSpectrumTable::Init(Allocator{});
 
         RGBColorSpace::Init(Allocator{});

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/maedahiyu/tools/pbrt-v4/src/ext/flip/flip.cpp" "src/ext/CMakeFiles/flip_lib.dir/flip/flip.cpp.o" "gcc" "src/ext/CMakeFiles/flip_lib.dir/flip/flip.cpp.o.d"
+  "/Users/hiyu/Tools/pbrt/src/ext/flip/flip.cpp" "src/ext/CMakeFiles/flip_lib.dir/flip/flip.cpp.o" "gcc" "src/ext/CMakeFiles/flip_lib.dir/flip/flip.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

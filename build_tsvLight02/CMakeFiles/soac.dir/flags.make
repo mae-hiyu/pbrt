@@ -6,7 +6,7 @@ CXX_DEFINES = -DPBRT_HAVE_MMAP -DPBRT_HAVE_POSIX_MEMALIGN -DPBRT_IS_OSX -DPBRT_N
 
 CXX_INCLUDES = 
 
-CXX_FLAGSarm64 = -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.0   -Wno-deprecated-declarations -ffp-contract=off -march=native
+CXX_FLAGSarm64 = -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=14.5   -Wno-deprecated-declarations -ffp-contract=off -march=native
 
-CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.0   -Wno-deprecated-declarations -ffp-contract=off -march=native
+CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=14.5   -Wno-deprecated-declarations -ffp-contract=off -march=native
 

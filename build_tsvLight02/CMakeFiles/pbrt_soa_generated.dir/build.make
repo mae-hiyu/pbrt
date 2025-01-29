@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.27.4/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.27.9/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/Cellar/cmake/3.27.4/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.27.9/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/maedahiyu/tools/pbrt-v4
+CMAKE_SOURCE_DIR = /Users/hiyu/Tools/pbrt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02
+CMAKE_BINARY_DIR = /Users/hiyu/Tools/pbrt/build_tsvLight02
 
 # Utility rule file for pbrt_soa_generated.
 
@@ -70,14 +70,14 @@ CMakeFiles/pbrt_soa_generated: pbrt_soa.h
 CMakeFiles/pbrt_soa_generated: wavefront_workitems_soa.h
 
 pbrt_soa.h: soac
-pbrt_soa.h: /Users/maedahiyu/tools/pbrt-v4/src/pbrt/pbrt.soa
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating pbrt_soa.h"
-	./soac /Users/maedahiyu/tools/pbrt-v4/src/pbrt/pbrt.soa > /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/pbrt_soa.h
+pbrt_soa.h: /Users/hiyu/Tools/pbrt/src/pbrt/pbrt.soa
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating pbrt_soa.h"
+	./soac /Users/hiyu/Tools/pbrt/src/pbrt/pbrt.soa > /Users/hiyu/Tools/pbrt/build_tsvLight02/pbrt_soa.h
 
 wavefront_workitems_soa.h: soac
-wavefront_workitems_soa.h: /Users/maedahiyu/tools/pbrt-v4/src/pbrt/wavefront/workitems.soa
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating wavefront_workitems_soa.h"
-	./soac /Users/maedahiyu/tools/pbrt-v4/src/pbrt/wavefront/workitems.soa > /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/wavefront_workitems_soa.h
+wavefront_workitems_soa.h: /Users/hiyu/Tools/pbrt/src/pbrt/wavefront/workitems.soa
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating wavefront_workitems_soa.h"
+	./soac /Users/hiyu/Tools/pbrt/src/pbrt/wavefront/workitems.soa > /Users/hiyu/Tools/pbrt/build_tsvLight02/wavefront_workitems_soa.h
 
 pbrt_soa_generated: CMakeFiles/pbrt_soa_generated
 pbrt_soa_generated: pbrt_soa.h
@@ -94,6 +94,6 @@ CMakeFiles/pbrt_soa_generated.dir/clean:
 .PHONY : CMakeFiles/pbrt_soa_generated.dir/clean
 
 CMakeFiles/pbrt_soa_generated.dir/depend:
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/maedahiyu/tools/pbrt-v4 /Users/maedahiyu/tools/pbrt-v4 /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02 /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02 /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles/pbrt_soa_generated.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/hiyu/Tools/pbrt /Users/hiyu/Tools/pbrt /Users/hiyu/Tools/pbrt/build_tsvLight02 /Users/hiyu/Tools/pbrt/build_tsvLight02 /Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles/pbrt_soa_generated.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/pbrt_soa_generated.dir/depend
 

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex
+# Install script for directory: /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex/libPtex.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex/libPtex.a")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libPtex.a" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libPtex.a")
     execute_process(COMMAND "/Library/Developer/CommandLineTools/usr/bin/ranlib" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libPtex.a")
@@ -47,11 +47,11 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexHalf.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexInt.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/Ptexture.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexUtils.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexVersion.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexHalf.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexInt.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/Ptexture.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexUtils.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexVersion.h"
     )
 endif()
 

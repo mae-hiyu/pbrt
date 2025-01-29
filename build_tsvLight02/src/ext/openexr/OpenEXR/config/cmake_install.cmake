@@ -1,4 +1,4 @@
-# Install script for directory: /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/OpenEXR/config
+# Install script for directory: /Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR/config
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/OpenEXR" TYPE FILE FILES "/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/config/OpenEXRConfig.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/OpenEXR" TYPE FILE FILES "/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/config/OpenEXRConfig.h")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/config/../OpenEXR.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/config/../OpenEXR.pc")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/OpenEXR" TYPE FILE FILES
-    "/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/config/OpenEXRConfig.cmake"
-    "/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/config/OpenEXRConfigVersion.cmake"
+    "/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/config/OpenEXRConfig.cmake"
+    "/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/config/OpenEXRConfigVersion.cmake"
     )
 endif()
 
@@ -56,7 +56,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/OpenEXR/OpenEXRTargets.cmake")
     file(DIFFERENT _cmake_export_file_changed FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/OpenEXR/OpenEXRTargets.cmake"
-         "/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/config/CMakeFiles/Export/a0df5e6cba69f2de73f8eeba5a964181/OpenEXRTargets.cmake")
+         "/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/config/CMakeFiles/Export/a0df5e6cba69f2de73f8eeba5a964181/OpenEXRTargets.cmake")
     if(_cmake_export_file_changed)
       file(GLOB _cmake_old_config_files "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/OpenEXR/OpenEXRTargets-*.cmake")
       if(_cmake_old_config_files)
@@ -69,6 +69,6 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     endif()
     unset(_cmake_export_file_changed)
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/OpenEXR" TYPE FILE FILES "/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/config/CMakeFiles/Export/a0df5e6cba69f2de73f8eeba5a964181/OpenEXRTargets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/OpenEXR" TYPE FILE FILES "/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/config/CMakeFiles/Export/a0df5e6cba69f2de73f8eeba5a964181/OpenEXRTargets.cmake")
 endif()
 

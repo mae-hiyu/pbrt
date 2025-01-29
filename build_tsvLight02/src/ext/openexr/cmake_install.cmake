@@ -1,4 +1,4 @@
-# Install script for directory: /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr
+# Install script for directory: /Users/hiyu/Tools/pbrt/src/ext/openexr
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/IlmBase/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/cmake_install.cmake")
 
 endif()
 

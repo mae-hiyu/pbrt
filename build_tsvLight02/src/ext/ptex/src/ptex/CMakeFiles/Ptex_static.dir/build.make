@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.27.4/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.27.9/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/Cellar/cmake/3.27.4/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.27.9/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/maedahiyu/tools/pbrt-v4
+CMAKE_SOURCE_DIR = /Users/hiyu/Tools/pbrt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02
+CMAKE_BINARY_DIR = /Users/hiyu/Tools/pbrt/build_tsvLight02
 
 # Include any dependencies generated for this target.
 include src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/depend.make
@@ -70,144 +70,144 @@ include src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/progress.make
 include src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/flags.make
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexCache.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/flags.make
-src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexCache.cpp.o: /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexCache.cpp
+src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexCache.cpp.o: /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexCache.cpp
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexCache.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexCache.cpp.o"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexCache.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexCache.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexCache.cpp.o -c /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexCache.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexCache.cpp.o"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexCache.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexCache.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexCache.cpp.o -c /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexCache.cpp
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexCache.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Ptex_static.dir/PtexCache.cpp.i"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexCache.cpp > CMakeFiles/Ptex_static.dir/PtexCache.cpp.i
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexCache.cpp > CMakeFiles/Ptex_static.dir/PtexCache.cpp.i
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexCache.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Ptex_static.dir/PtexCache.cpp.s"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexCache.cpp -o CMakeFiles/Ptex_static.dir/PtexCache.cpp.s
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexCache.cpp -o CMakeFiles/Ptex_static.dir/PtexCache.cpp.s
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexFilters.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/flags.make
-src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexFilters.cpp.o: /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexFilters.cpp
+src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexFilters.cpp.o: /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexFilters.cpp
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexFilters.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexFilters.cpp.o"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexFilters.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexFilters.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexFilters.cpp.o -c /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexFilters.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexFilters.cpp.o"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexFilters.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexFilters.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexFilters.cpp.o -c /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexFilters.cpp
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexFilters.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Ptex_static.dir/PtexFilters.cpp.i"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexFilters.cpp > CMakeFiles/Ptex_static.dir/PtexFilters.cpp.i
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexFilters.cpp > CMakeFiles/Ptex_static.dir/PtexFilters.cpp.i
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexFilters.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Ptex_static.dir/PtexFilters.cpp.s"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexFilters.cpp -o CMakeFiles/Ptex_static.dir/PtexFilters.cpp.s
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexFilters.cpp -o CMakeFiles/Ptex_static.dir/PtexFilters.cpp.s
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexHalf.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/flags.make
-src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexHalf.cpp.o: /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexHalf.cpp
+src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexHalf.cpp.o: /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexHalf.cpp
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexHalf.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexHalf.cpp.o"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexHalf.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexHalf.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexHalf.cpp.o -c /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexHalf.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexHalf.cpp.o"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexHalf.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexHalf.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexHalf.cpp.o -c /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexHalf.cpp
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexHalf.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Ptex_static.dir/PtexHalf.cpp.i"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexHalf.cpp > CMakeFiles/Ptex_static.dir/PtexHalf.cpp.i
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexHalf.cpp > CMakeFiles/Ptex_static.dir/PtexHalf.cpp.i
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexHalf.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Ptex_static.dir/PtexHalf.cpp.s"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexHalf.cpp -o CMakeFiles/Ptex_static.dir/PtexHalf.cpp.s
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexHalf.cpp -o CMakeFiles/Ptex_static.dir/PtexHalf.cpp.s
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexReader.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/flags.make
-src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexReader.cpp.o: /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexReader.cpp
+src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexReader.cpp.o: /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexReader.cpp
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexReader.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexReader.cpp.o"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexReader.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexReader.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexReader.cpp.o -c /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexReader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexReader.cpp.o"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexReader.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexReader.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexReader.cpp.o -c /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexReader.cpp
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexReader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Ptex_static.dir/PtexReader.cpp.i"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexReader.cpp > CMakeFiles/Ptex_static.dir/PtexReader.cpp.i
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexReader.cpp > CMakeFiles/Ptex_static.dir/PtexReader.cpp.i
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexReader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Ptex_static.dir/PtexReader.cpp.s"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexReader.cpp -o CMakeFiles/Ptex_static.dir/PtexReader.cpp.s
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexReader.cpp -o CMakeFiles/Ptex_static.dir/PtexReader.cpp.s
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/flags.make
-src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.o: /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexSeparableFilter.cpp
+src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.o: /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexSeparableFilter.cpp
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.o"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.o -c /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexSeparableFilter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.o"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.o -c /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexSeparableFilter.cpp
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.i"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexSeparableFilter.cpp > CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.i
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexSeparableFilter.cpp > CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.i
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.s"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexSeparableFilter.cpp -o CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.s
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexSeparableFilter.cpp -o CMakeFiles/Ptex_static.dir/PtexSeparableFilter.cpp.s
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/flags.make
-src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.o: /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexSeparableKernel.cpp
+src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.o: /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexSeparableKernel.cpp
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.o"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.o -c /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexSeparableKernel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.o"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.o -c /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexSeparableKernel.cpp
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.i"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexSeparableKernel.cpp > CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.i
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexSeparableKernel.cpp > CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.i
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.s"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexSeparableKernel.cpp -o CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.s
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexSeparableKernel.cpp -o CMakeFiles/Ptex_static.dir/PtexSeparableKernel.cpp.s
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/flags.make
-src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.o: /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexTriangleFilter.cpp
+src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.o: /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexTriangleFilter.cpp
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.o"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.o -c /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexTriangleFilter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.o"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.o -c /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexTriangleFilter.cpp
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.i"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexTriangleFilter.cpp > CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.i
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexTriangleFilter.cpp > CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.i
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.s"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexTriangleFilter.cpp -o CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.s
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexTriangleFilter.cpp -o CMakeFiles/Ptex_static.dir/PtexTriangleFilter.cpp.s
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/flags.make
-src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.o: /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexTriangleKernel.cpp
+src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.o: /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexTriangleKernel.cpp
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.o"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.o -c /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexTriangleKernel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.o"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.o -c /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexTriangleKernel.cpp
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.i"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexTriangleKernel.cpp > CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.i
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexTriangleKernel.cpp > CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.i
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.s"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexTriangleKernel.cpp -o CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.s
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexTriangleKernel.cpp -o CMakeFiles/Ptex_static.dir/PtexTriangleKernel.cpp.s
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexUtils.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/flags.make
-src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexUtils.cpp.o: /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexUtils.cpp
+src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexUtils.cpp.o: /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexUtils.cpp
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexUtils.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexUtils.cpp.o"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexUtils.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexUtils.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexUtils.cpp.o -c /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexUtils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexUtils.cpp.o"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexUtils.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexUtils.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexUtils.cpp.o -c /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexUtils.cpp
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexUtils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Ptex_static.dir/PtexUtils.cpp.i"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexUtils.cpp > CMakeFiles/Ptex_static.dir/PtexUtils.cpp.i
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexUtils.cpp > CMakeFiles/Ptex_static.dir/PtexUtils.cpp.i
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexUtils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Ptex_static.dir/PtexUtils.cpp.s"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexUtils.cpp -o CMakeFiles/Ptex_static.dir/PtexUtils.cpp.s
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexUtils.cpp -o CMakeFiles/Ptex_static.dir/PtexUtils.cpp.s
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexWriter.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/flags.make
-src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexWriter.cpp.o: /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexWriter.cpp
+src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexWriter.cpp.o: /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexWriter.cpp
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexWriter.cpp.o: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexWriter.cpp.o"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexWriter.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexWriter.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexWriter.cpp.o -c /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexWriter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexWriter.cpp.o"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexWriter.cpp.o -MF CMakeFiles/Ptex_static.dir/PtexWriter.cpp.o.d -o CMakeFiles/Ptex_static.dir/PtexWriter.cpp.o -c /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexWriter.cpp
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexWriter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Ptex_static.dir/PtexWriter.cpp.i"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexWriter.cpp > CMakeFiles/Ptex_static.dir/PtexWriter.cpp.i
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexWriter.cpp > CMakeFiles/Ptex_static.dir/PtexWriter.cpp.i
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexWriter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Ptex_static.dir/PtexWriter.cpp.s"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex/PtexWriter.cpp -o CMakeFiles/Ptex_static.dir/PtexWriter.cpp.s
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex/PtexWriter.cpp -o CMakeFiles/Ptex_static.dir/PtexWriter.cpp.s
 
 # Object files for target Ptex_static
 Ptex_static_OBJECTS = \
@@ -237,19 +237,19 @@ src/ext/ptex/src/ptex/libPtex.a: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.di
 src/ext/ptex/src/ptex/libPtex.a: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/PtexWriter.cpp.o
 src/ext/ptex/src/ptex/libPtex.a: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/build.make
 src/ext/ptex/src/ptex/libPtex.a: src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library libPtex.a"
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && $(CMAKE_COMMAND) -P CMakeFiles/Ptex_static.dir/cmake_clean_target.cmake
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Ptex_static.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library libPtex.a"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && $(CMAKE_COMMAND) -P CMakeFiles/Ptex_static.dir/cmake_clean_target.cmake
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Ptex_static.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/build: src/ext/ptex/src/ptex/libPtex.a
 .PHONY : src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/build
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/clean:
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex && $(CMAKE_COMMAND) -P CMakeFiles/Ptex_static.dir/cmake_clean.cmake
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex && $(CMAKE_COMMAND) -P CMakeFiles/Ptex_static.dir/cmake_clean.cmake
 .PHONY : src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/clean
 
 src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/depend:
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/maedahiyu/tools/pbrt-v4 /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/ptex /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02 /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/hiyu/Tools/pbrt /Users/hiyu/Tools/pbrt/src/ext/ptex/src/ptex /Users/hiyu/Tools/pbrt/build_tsvLight02 /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex /Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : src/ext/ptex/src/ptex/CMakeFiles/Ptex_static.dir/depend
 

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/OpenEXR/doc
+# Install script for directory: /Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR/doc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,12 +39,12 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/doc/OpenEXR" TYPE FILE FILES
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/OpenEXR/doc/TechnicalIntroduction.pdf"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/OpenEXR/doc/ReadingAndWritingImageFiles.pdf"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/OpenEXR/doc/OpenEXRFileLayout.pdf"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/OpenEXR/doc/MultiViewOpenEXR.pdf"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/OpenEXR/doc/InterpretingDeepPixels.pdf"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/OpenEXR/doc/TheoryDeepPixels.pdf"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR/doc/TechnicalIntroduction.pdf"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR/doc/ReadingAndWritingImageFiles.pdf"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR/doc/OpenEXRFileLayout.pdf"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR/doc/MultiViewOpenEXR.pdf"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR/doc/InterpretingDeepPixels.pdf"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR/doc/TheoryDeepPixels.pdf"
     )
 endif()
 

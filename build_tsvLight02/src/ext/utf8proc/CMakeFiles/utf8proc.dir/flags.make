@@ -4,9 +4,9 @@
 # compile C with /Library/Developer/CommandLineTools/usr/bin/cc
 C_DEFINES = -DUTF8PROC_EXPORTS -DUTF8PROC_STATIC
 
-C_INCLUDES = -I/Users/maedahiyu/tools/pbrt-v4/src/ext/utf8proc/.
+C_INCLUDES = -I/Users/hiyu/Tools/pbrt/src/ext/utf8proc/.
 
-C_FLAGSarm64 = -O3 -DNDEBUG -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.0 -fPIC -O2 -std=c99 -pedantic -Wall
+C_FLAGSarm64 = -O3 -DNDEBUG -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=14.5 -fPIC -O2 -std=c99 -pedantic -Wall
 
-C_FLAGS = -O3 -DNDEBUG -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.0 -fPIC -O2 -std=c99 -pedantic -Wall
+C_FLAGS = -O3 -DNDEBUG -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=14.5 -fPIC -O2 -std=c99 -pedantic -Wall
 

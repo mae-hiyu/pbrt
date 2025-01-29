@@ -38,9 +38,6 @@ static const int NSpectrumSamples = 12;
 
 static constexpr Float CIE_Y_integral = 106.856895;
 
-static int x_size = 4;  // 宣言
-static int y_size = 4;
-static int z_size = 4;
 
 // Spectrum Definition
 class BlackbodySpectrum;
@@ -354,28 +351,28 @@ class SampledWavelengths {
     SampledWavelengths swl;
     // swl.setWavelengthSize(x, y, z);
 
-    for(int i = 0; i < x_size; ++i) {
-        Float up = u + Float(i) / x_size;
+    for(int i = 0; i < swl.x_size; ++i) {
+        Float up = u + Float(i) / swl.x_size;
         if(up > 1)
             up -= 1;
 
         swl.lambda[i] = SampleXyzXWavelengths(up);
         // swl.pdf[i] = XyzXWavelengthsPDF(swl.lambda[i]);
     }
-    for(int i = 0; i < y_size; ++i) {
-        Float up = u + Float(i) / y_size;
+    for(int i = 0; i < swl.y_size; ++i) {
+        Float up = u + Float(i) / swl.y_size;
         if(up > 1)
             up -= 1;
 
-        swl.lambda[x_size + i] = SampleXyzYWavelengths(up);
+        swl.lambda[swl.x_size + i] = SampleXyzYWavelengths(up);
         // swl.pdf[x_size + i] = XyzYWavelengthsPDF(swl.lambda[x_size + i]);
     }
-    for(int i = 0; i < z_size; ++i) {
-        Float up = u + Float(i) / z_size;
+    for(int i = 0; i < swl.z_size; ++i) {
+        Float up = u + Float(i) / swl.z_size;
         if(up > 1)
             up -= 1;
 
-        swl.lambda[x_size + y_size + i] = SampleXyzZWavelengths(up);
+        swl.lambda[swl.x_size + swl.y_size + i] = SampleXyzZWavelengths(up);
         // swl.pdf[x_size + y_size + i] = XyzZWavelengthsPDF(swl.lambda[x_size + y_size + i]);
     }
 
@@ -391,46 +388,38 @@ class SampledWavelengths {
     SampledWavelengths swl;
 
     // 確率に基づいたサンプル数の決定
-    x_size = std::round(total_size * 0.437);
-    y_size = std::round(total_size * 0.405);
-    z_size = total_size - x_size - y_size;  // 誤差調整
+    swl.x_size = std::round(total_size * 0.437);
+    swl.y_size = std::round(total_size * 0.405);
+    swl.z_size = total_size - swl.x_size - swl.y_size;  // 誤差調整
 
-    for(int i = 0; i < x_size; ++i) {
-        Float up = u + Float(i) / x_size;
+    for(int i = 0; i < swl.x_size; ++i) {
+        Float up = u + Float(i) / swl.x_size;
         if(up > 1) up -= 1;
 
-            swl.lambda[i] = SampleLightXyzXWavelengths(up);
-            swl.lambda[i] = SampleLightXyzXWavelengths(up);
-            // swl.pdf[i] = XyzXWavelengthsPDF(swl.lambda[i]);
         swl.lambda[i] = SampleLightXyzXWavelengths(up);
             // swl.pdf[i] = XyzXWavelengthsPDF(swl.lambda[i]);
     }
-    for(int i = 0; i < y_size; ++i) {
-        Float up = u + Float(i) / y_size;
+    for(int i = 0; i < swl.y_size; ++i) {
+        Float up = u + Float(i) / swl.y_size;
         if(up > 1) up -= 1;
 
-            swl.lambda[x_size + i] = SampleLightXyzYWavelengths(up);
-            swl.lambda[x_size + i] = SampleLightXyzYWavelengths(up);
-            // swl.pdf[x_size + i] = XyzYWavelengthsPDF(swl.lambda[x_size + i]);
-        swl.lambda[x_size + i] = SampleLightXyzYWavelengths(up);
+        swl.lambda[swl.x_size + i] = SampleLightXyzYWavelengths(up);
             // swl.pdf[x_size + i] = XyzYWavelengthsPDF(swl.lambda[x_size + i]);
     }
-    for(int i = 0; i < z_size; ++i) {
-        Float up = u + Float(i) / z_size;
+    for(int i = 0; i < swl.z_size; ++i) {
+        Float up = u + Float(i) / swl.z_size;
         if(up > 1) up -= 1;
 
-            swl.lambda[x_size + y_size + i] = SampleLightXyzZWavelengths(up);
-            swl.lambda[x_size + y_size + i] = SampleLightXyzZWavelengths(up);
-            // swl.pdf[x_size + y_size + i] = XyzZWavelengthsPDF(swl.lambda[x_size + y_size + i]);
-        swl.lambda[x_size + y_size + i] = SampleLightXyzZWavelengths(up);
-            // swl.pdf[x_size + y_size + i] = XyzZWavelengthsPDF(swl.lambda[x_size + y_size + i]);
+        swl.lambda[swl.x_size + swl.y_size + i] = SampleLightXyzZWavelengths(up);
+            // swl.pdf[x_size + swl.y_size + i] = XyzZWavelengthsPDF(swl.lambda[x_size + swl.y_size + i]);
     }
 
     for (int i = 0; i < NSpectrumSamples; ++i)
-        swl.pdf[i] = 1 / (lambda_max - lambda_min);
+        swl.pdf[i] = 1;
 
     return swl;
 }
+    int x_size, y_size, z_size;
 
   private:
     // SampledWavelengths Private Members

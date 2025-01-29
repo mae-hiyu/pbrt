@@ -1,4 +1,4 @@
-# Install script for directory: /Users/maedahiyu/tools/pbrt-v4/src/ext
+# Install script for directory: /Users/hiyu/Tools/pbrt/src/ext
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,13 +39,13 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/libdeflate/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/ptex/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/double-conversion/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/utf8proc/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/glfw/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/glad/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/libdeflate/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/ptex/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/double-conversion/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/utf8proc/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/glfw/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/glad/cmake_install.cmake")
 
 endif()
 

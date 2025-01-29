@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.27.4/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.27.9/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/Cellar/cmake/3.27.4/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.27.9/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/maedahiyu/tools/pbrt-v4
+CMAKE_SOURCE_DIR = /Users/hiyu/Tools/pbrt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02
+CMAKE_BINARY_DIR = /Users/hiyu/Tools/pbrt/build_tsvLight02
 
 # Include any dependencies generated for this target.
 include CMakeFiles/sky_lib.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/sky_lib.dir/progress.make
 include CMakeFiles/sky_lib.dir/flags.make
 
 CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o: CMakeFiles/sky_lib.dir/flags.make
-CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o: /Users/maedahiyu/tools/pbrt-v4/src/ext/skymodel/ArHosekSkyModel.c
+CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o: /Users/hiyu/Tools/pbrt/src/ext/skymodel/ArHosekSkyModel.c
 CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o: CMakeFiles/sky_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o -MF CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o.d -o CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o -c /Users/maedahiyu/tools/pbrt-v4/src/ext/skymodel/ArHosekSkyModel.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o -MF CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o.d -o CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o -c /Users/hiyu/Tools/pbrt/src/ext/skymodel/ArHosekSkyModel.c
 
 CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/maedahiyu/tools/pbrt-v4/src/ext/skymodel/ArHosekSkyModel.c > CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/hiyu/Tools/pbrt/src/ext/skymodel/ArHosekSkyModel.c > CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.i
 
 CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/maedahiyu/tools/pbrt-v4/src/ext/skymodel/ArHosekSkyModel.c -o CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/hiyu/Tools/pbrt/src/ext/skymodel/ArHosekSkyModel.c -o CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.s
 
 # Object files for target sky_lib
 sky_lib_OBJECTS = \
@@ -93,7 +93,7 @@ sky_lib_EXTERNAL_OBJECTS =
 libsky_lib.a: CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o
 libsky_lib.a: CMakeFiles/sky_lib.dir/build.make
 libsky_lib.a: CMakeFiles/sky_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libsky_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libsky_lib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/sky_lib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sky_lib.dir/link.txt --verbose=$(VERBOSE)
 
@@ -106,6 +106,6 @@ CMakeFiles/sky_lib.dir/clean:
 .PHONY : CMakeFiles/sky_lib.dir/clean
 
 CMakeFiles/sky_lib.dir/depend:
-	cd /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/maedahiyu/tools/pbrt-v4 /Users/maedahiyu/tools/pbrt-v4 /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02 /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02 /Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/CMakeFiles/sky_lib.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/hiyu/Tools/pbrt/build_tsvLight02 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/hiyu/Tools/pbrt /Users/hiyu/Tools/pbrt /Users/hiyu/Tools/pbrt/build_tsvLight02 /Users/hiyu/Tools/pbrt/build_tsvLight02 /Users/hiyu/Tools/pbrt/build_tsvLight02/CMakeFiles/sky_lib.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/sky_lib.dir/depend
 

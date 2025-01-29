@@ -1,4 +1,4 @@
-# Install script for directory: /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/OpenEXR/IlmImfUtil
+# Install script for directory: /Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR/IlmImfUtil
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/OpenEXR
+# Install script for directory: /Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,14 +39,14 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/config/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/IlmImf/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/IlmImfUtil/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/IlmImfExamples/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/IlmImfTest/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/IlmImfUtilTest/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/IlmImfFuzzTest/cmake_install.cmake")
-  include("/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/OpenEXR/doc/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/config/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/IlmImf/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/IlmImfUtil/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/IlmImfExamples/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/IlmImfTest/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/IlmImfUtilTest/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/IlmImfFuzzTest/cmake_install.cmake")
+  include("/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/OpenEXR/doc/cmake_install.cmake")
 
 endif()
 

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/doc
+# Install script for directory: /Users/hiyu/Tools/pbrt/src/ext/ptex/src/doc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

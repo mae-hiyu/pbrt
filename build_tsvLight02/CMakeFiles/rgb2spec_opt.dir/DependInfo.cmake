@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/maedahiyu/tools/pbrt-v4/src/pbrt/cmd/rgb2spec_opt.cpp" "CMakeFiles/rgb2spec_opt.dir/src/pbrt/cmd/rgb2spec_opt.cpp.o" "gcc" "CMakeFiles/rgb2spec_opt.dir/src/pbrt/cmd/rgb2spec_opt.cpp.o.d"
+  "/Users/hiyu/Tools/pbrt/src/pbrt/cmd/rgb2spec_opt.cpp" "CMakeFiles/rgb2spec_opt.dir/src/pbrt/cmd/rgb2spec_opt.cpp.o" "gcc" "CMakeFiles/rgb2spec_opt.dir/src/pbrt/cmd/rgb2spec_opt.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

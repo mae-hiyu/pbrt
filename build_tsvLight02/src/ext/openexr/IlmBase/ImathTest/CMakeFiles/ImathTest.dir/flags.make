@@ -4,9 +4,9 @@
 # compile CXX with /Library/Developer/CommandLineTools/usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/ImathTest -I/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/ImathTest -I/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Imath -I/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/config -I/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Half -I/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/IexMath -I/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/Iex
+CXX_INCLUDES = -I/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/IlmBase/ImathTest -I/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/ImathTest -I/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath -I/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/IlmBase/config -I/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Half -I/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/IexMath -I/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Iex
 
-CXX_FLAGSarm64 = -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.0
+CXX_FLAGSarm64 = -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=14.5
 
-CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.0
+CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=14.5
 

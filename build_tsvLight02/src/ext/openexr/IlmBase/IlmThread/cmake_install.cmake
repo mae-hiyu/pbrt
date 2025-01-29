@@ -1,4 +1,4 @@
-# Install script for directory: /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/IlmThread
+# Install script for directory: /Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/IlmThread
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/openexr/IlmBase/IlmThread/libIlmThread-2_5.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/openexr/IlmBase/IlmThread/libIlmThread-2_5.a")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libIlmThread-2_5.a" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libIlmThread-2_5.a")
     execute_process(COMMAND "/Library/Developer/CommandLineTools/usr/bin/ranlib" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libIlmThread-2_5.a")
@@ -47,13 +47,13 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/OpenEXR" TYPE FILE FILES
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/IlmThread/IlmThreadPool.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/IlmThread/IlmThread.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/IlmThread/IlmThreadSemaphore.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/IlmThread/IlmThreadMutex.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/IlmThread/IlmThreadNamespace.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/IlmThread/IlmThreadExport.h"
-    "/Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/IlmThread/IlmThreadForward.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/IlmThread/IlmThreadPool.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/IlmThread/IlmThread.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/IlmThread/IlmThreadSemaphore.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/IlmThread/IlmThreadMutex.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/IlmThread/IlmThreadNamespace.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/IlmThread/IlmThreadExport.h"
+    "/Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/IlmThread/IlmThreadForward.h"
     )
 endif()
 

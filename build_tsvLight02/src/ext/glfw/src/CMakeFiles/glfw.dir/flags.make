@@ -4,9 +4,9 @@
 # compile C with /Library/Developer/CommandLineTools/usr/bin/cc
 C_DEFINES = -D_GLFW_COCOA
 
-C_INCLUDES = -I/Users/maedahiyu/tools/pbrt-v4/src/ext/glfw/include -I/Users/maedahiyu/tools/pbrt-v4/src/ext/glfw/src -I/Users/maedahiyu/tools/pbrt-v4/build_tsvLight02/src/ext/glfw/src
+C_INCLUDES = -I/Users/hiyu/Tools/pbrt/src/ext/glfw/include -I/Users/hiyu/Tools/pbrt/src/ext/glfw/src -I/Users/hiyu/Tools/pbrt/build_tsvLight02/src/ext/glfw/src
 
-C_FLAGSarm64 = -O3 -DNDEBUG -std=c99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.0 -fPIC -Wall
+C_FLAGSarm64 = -O3 -DNDEBUG -std=c99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=14.5 -fPIC -Wall
 
-C_FLAGS = -O3 -DNDEBUG -std=c99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.0 -fPIC -Wall
+C_FLAGS = -O3 -DNDEBUG -std=c99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=14.5 -fPIC -Wall
 

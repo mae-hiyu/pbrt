@@ -1,0 +1,88 @@
+Rotate -3.2311152715 1 0 0
+Translate 0 -0.689714 6.70284
+Camera "perspective" "float fov" [27.546121928]
+Film "rgb" 
+	"integer xresolution" [1024] "integer yresolution" [768] 
+	"string filename" "Jensen-CornellBox.exr"
+
+
+Sampler "halton"
+  "integer pixelsamples" [64]
+Integrator "simplepath"
+
+WorldBegin
+
+
+AttributeBegin
+	Material "diffuse" "rgb reflectance" [0.9 0.9 0.9]
+	Translate 0 1.4999 0
+	AreaLightSource "diffuse" 
+    "spectrum L" "f12.txt" "float scale" [4.0]
+	Shape "trianglemesh" 
+		"point3 P"
+		[-0.5 0 -0.5   0.5 0 -0.5   0.5 0 0.5   -0.5 0 0.5]
+		"integer indices"
+		[0 1 2   0 2 3]
+AttributeEnd
+
+
+AttributeBegin
+	Material "diffuse" "rgb reflectance" [0.75 0.75 0.75]
+	Shape "trianglemesh" 
+		"point3 P"
+		[-1.5 1.5 -2.55   1.5 1.5 -2.55   1.5 1.5 2.55   -1.5 1.5 2.55]
+		"integer indices"
+		[0 1 2   0 2 3]
+AttributeEnd
+
+
+AttributeBegin
+	Material "diffuse" "rgb reflectance" [0.75 0.75 0.75]
+	Shape "trianglemesh" 
+		"point3 P"
+		[-1.5 -1 2.55   1.5 -1 2.55   1.5 -1 -2.55   -1.5 -1 -2.55]
+		"integer indices"
+		[0 1 2   0 2 3]
+AttributeEnd
+
+AttributeBegin
+	Material "diffuse" 
+		"spectrum reflectance" "red_spectrum.txt"
+	Shape "trianglemesh" 
+		"point3 P"
+		[-1.5 1.5 -2.55   -1.5 1.5 2.55   -1.5 -1 2.55   -1.5 -1 -2.55]
+		"integer indices"
+		[0 1 2   0 2 3]
+AttributeEnd
+
+
+AttributeBegin
+	Material "diffuse" "spectrum reflectance" "green_spectrum.txt"
+	Shape "trianglemesh" 
+		"point3 P"
+		[1.5 1.5 2.55   1.5 1.5 -2.55   1.5 -1 -2.55   1.5 -1 2.55]
+		"integer indices"
+		[0 1 2   0 2 3]
+AttributeEnd
+
+AttributeBegin
+	Material "diffuse" "rgb reflectance" [0.75 0.75 0.75]
+	Shape "trianglemesh" 
+		"point3 P"
+		[-1.5 1.5 2.55   1.5 1.5 2.55   1.5 -1 2.55   -1.5 -1 2.55]
+		"integer indices"
+		[0 1 2   0 2 3]
+AttributeEnd
+
+
+AttributeBegin
+	Material "diffuse"
+	Translate -0.7 -0.5 1.05
+	Shape "sphere" "float radius" [0.5]
+AttributeEnd
+
+AttributeBegin
+	Material "diffuse"
+	Translate 0.7 -0.5 0
+	Shape "sphere" "float radius" [0.5]
+AttributeEnd

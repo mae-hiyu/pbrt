@@ -1,4 +1,4 @@
-# Install script for directory: /Users/maedahiyu/tools/pbrt-v4/src/ext/openexr/IlmBase/HalfTest
+# Install script for directory: /Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/HalfTest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

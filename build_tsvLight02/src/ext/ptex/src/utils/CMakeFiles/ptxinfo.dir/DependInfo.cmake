@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/maedahiyu/tools/pbrt-v4/src/ext/ptex/src/utils/ptxinfo.cpp" "src/ext/ptex/src/utils/CMakeFiles/ptxinfo.dir/ptxinfo.cpp.o" "gcc" "src/ext/ptex/src/utils/CMakeFiles/ptxinfo.dir/ptxinfo.cpp.o.d"
+  "/Users/hiyu/Tools/pbrt/src/ext/ptex/src/utils/ptxinfo.cpp" "src/ext/ptex/src/utils/CMakeFiles/ptxinfo.dir/ptxinfo.cpp.o" "gcc" "src/ext/ptex/src/utils/CMakeFiles/ptxinfo.dir/ptxinfo.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
