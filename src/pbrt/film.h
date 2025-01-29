@@ -95,6 +95,7 @@ class PixelSensor {
     PBRT_CPU_GPU
     RGB ToSensorRGB(SampledSpectrum L, const SampledWavelengths &lambda) const {
         L = SafeDiv(L,lambda.PDF());
+        L = SafeDiv(L,lambda.PDF());
         
 
         // SampledSpectrum light;
@@ -102,9 +103,20 @@ class PixelSensor {
         //     light[i] = LightPDF(lambda[i]);
         // }
         // L = SafeDiv(L,light);
-        return 0.536531398 * imagingRatio * XYZFromSensorRGB * RGB((L[0] + L[1] + L[2] + L[3]) / 4,
-                            (L[4] + L[5] + L[6] + L[7]) / 4,
-                            (L[8] + L[9] + L[10] + L[11]) / 4);
+        Float R, G, B;
+        for(int i = 0; i < x_size; ++i) {
+            R = L[i];
+        }
+        for(int i = 0; i < y_size; ++i) {
+            G = L[x_size + i];
+        }
+        for(int i = 0; i < z_size; ++i) {
+            B = L[x_size + y_size + i];
+        }
+        std::cout << "x_size, y_size, z_size : " << x_size << ", " << y_size << ", " << z_size << ", " << std::endl;  
+        return 0.536531398 * imagingRatio * XYZFromSensorRGB * RGB(R,
+                            G ,
+                            B);
         // return imagingRatio * RGB((r_bar.Sample(lambda) * L).Average(),
         //                           (g_bar.Sample(lambda) * L).Average(),
         //                           (b_bar.Sample(lambda) * L).Average());
