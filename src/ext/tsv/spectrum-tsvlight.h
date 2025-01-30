@@ -1,12 +1,12 @@
 #ifndef PBRT_EXT_TSV_SPECTRUM_TSV_LIGHT
 #define PBRT_EXT_TSV_SPECTRUM_TSV_LIGHT
 
-#include <iostream>
-#include <fstream>
 #include <pbrt/pbrt.h>
 #include <pbrt/util/spectrum.h>
 #include <pbrt/util/sampling.h>
+#include <pbrt/util/math.h>
 #include <ext/tsv/sampling-tsvlight.h>
+
 
 namespace pbrt {
 
@@ -51,6 +51,7 @@ class SampledXYZWavelengths : public SampledWavelengths {
                                          Float lambda_max = Lambda_max, int total_size = NSpectrumSamples) {
     SampledXYZWavelengths swl;
 
+    std::rand
     // 確率に基づいたサンプル数の決定
     swl.x_size = std::round(total_size * 0.437);
     swl.y_size = std::round(total_size * 0.405);

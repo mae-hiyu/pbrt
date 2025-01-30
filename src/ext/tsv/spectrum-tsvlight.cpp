@@ -1,6 +1,3 @@
-#ifndef PBRT_EXT_TSV_SPECTRUM_TSV_LIGHT
-#define PBRT_EXT_TSV_SPECTRUM_TSV_LIGHT
-
 #include <iostream>
 #include <fstream>
 #include <pbrt/pbrt.h>
@@ -22,5 +19,3 @@ void Init(Allocator alloc) {
 // namespace 
 }
 // namespace pbrt
-
-#endif
