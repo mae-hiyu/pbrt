@@ -28,6 +28,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <random>
 
 namespace pbrt {
 
@@ -377,7 +378,7 @@ class SampledWavelengths {
     }
 
     for (int i = 0; i < NSpectrumSamples; ++i)
-        swl.pdf[i] = 1 / (lambda_max - lambda_min);
+        swl.pdf[i] = 1 ;
 
     return swl;
     }
@@ -385,41 +386,52 @@ class SampledWavelengths {
     PBRT_CPU_GPU
     static SampledWavelengths SampleTsvLight(Float u, Float lambda_min = Lambda_min,
                                          Float lambda_max = Lambda_max, int total_size = NSpectrumSamples) {
-    SampledWavelengths swl;
+        SampledWavelengths swl;
 
-    // 確率に基づいたサンプル数の決定
-    swl.x_size = std::round(total_size * 0.437);
-    swl.y_size = std::round(total_size * 0.405);
-    swl.z_size = total_size - swl.x_size - swl.y_size;  // 誤差調整
+        // 乱数生成器
+        // std::random_device rd;
+        // std::mt19937 gen(rd());
+        // std::discrete_distribution<int> distribution({0.437, 0.405, 0.158});
 
-    for(int i = 0; i < swl.x_size; ++i) {
-        Float up = u + Float(i) / swl.x_size;
-        if(up > 1) up -= 1;
+        // // 確率に基づいてサンプル数を決定（多項分布）
+        // std::vector<int> counts(3, 0);
+        // for (int i = 0; i < total_size; ++i) {
+        //     counts[distribution(gen)]++;
+        // }
 
-        swl.lambda[i] = SampleLightXyzXWavelengths(up);
-            // swl.pdf[i] = XyzXWavelengthsPDF(swl.lambda[i]);
+        swl.x_size = (0.437 + u * 0.1) * 12;
+        swl.y_size = (0.405 + u * 0.1) * 12;
+        swl.z_size = NSpectrumSamples - swl.x_size - swl.y_size;
+
+        for(int i = 0; i < swl.x_size; ++i) {
+            Float up = u + Float(i) / swl.x_size;
+            if(up > 1) up -= 1;
+
+            swl.lambda[i] = SampleLightXyzXWavelengths(up);
+                // swl.pdf[i] = XyzXWavelengthsPDF(swl.lambda[i]);
+        }
+        for(int i = 0; i < swl.y_size; ++i) {
+            Float up = u + Float(i) / swl.y_size;
+            if(up > 1) up -= 1;
+
+            swl.lambda[swl.x_size + i] = SampleLightXyzYWavelengths(up);
+                // swl.pdf[x_size + i] = XyzYWavelengthsPDF(swl.lambda[x_size + i]);
+        }
+        for(int i = 0; i < swl.z_size; ++i) {
+            Float up = u + Float(i) / swl.z_size;
+            if(up > 1) up -= 1;
+
+            swl.lambda[swl.x_size + swl.y_size + i] = SampleLightXyzZWavelengths(up);
+                // swl.pdf[x_size + swl.y_size + i] = XyzZWavelengthsPDF(swl.lambda[x_size + swl.y_size + i]);
+        }
+
+        for (int i = 0; i < NSpectrumSamples; ++i)
+            swl.pdf[i] = 1;
+
+        return swl;
     }
-    for(int i = 0; i < swl.y_size; ++i) {
-        Float up = u + Float(i) / swl.y_size;
-        if(up > 1) up -= 1;
 
-        swl.lambda[swl.x_size + i] = SampleLightXyzYWavelengths(up);
-            // swl.pdf[x_size + i] = XyzYWavelengthsPDF(swl.lambda[x_size + i]);
-    }
-    for(int i = 0; i < swl.z_size; ++i) {
-        Float up = u + Float(i) / swl.z_size;
-        if(up > 1) up -= 1;
-
-        swl.lambda[swl.x_size + swl.y_size + i] = SampleLightXyzZWavelengths(up);
-            // swl.pdf[x_size + swl.y_size + i] = XyzZWavelengthsPDF(swl.lambda[x_size + swl.y_size + i]);
-    }
-
-    for (int i = 0; i < NSpectrumSamples; ++i)
-        swl.pdf[i] = 1;
-
-    return swl;
-}
-    int x_size, y_size, z_size;
+    int x_size=4, y_size=4, z_size=4;
 
   private:
     // SampledWavelengths Private Members

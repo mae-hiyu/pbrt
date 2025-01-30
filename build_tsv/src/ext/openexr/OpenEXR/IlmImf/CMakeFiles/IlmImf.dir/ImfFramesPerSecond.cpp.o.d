@@ -1,0 +1,27 @@
+src/ext/openexr/OpenEXR/IlmImf/CMakeFiles/IlmImf.dir/ImfFramesPerSecond.cpp.o: \
+  /Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR/IlmImf/ImfFramesPerSecond.cpp \
+  /Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR/IlmImf/ImfFramesPerSecond.h \
+  /Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR/IlmImf/ImfRational.h \
+  /Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR/IlmImf/ImfExport.h \
+  /Users/hiyu/Tools/pbrt/src/ext/openexr/OpenEXR/IlmImf/ImfNamespace.h \
+  /Users/hiyu/Tools/pbrt/build_tsv/src/ext/openexr/OpenEXR/config/OpenEXRConfig.h \
+  /Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathFun.h \
+  /Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathExport.h \
+  /Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathLimits.h \
+  /Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathNamespace.h \
+  /Users/hiyu/Tools/pbrt/build_tsv/src/ext/openexr/IlmBase/config/IlmBaseConfig.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/float.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__config \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__config_site \
+  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/float.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/float.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/cdefs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_symbol_aliasing.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_posix_availability.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/machine/limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/arm/limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/arm/_limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/syslimits.h \
+  /Users/hiyu/Tools/pbrt/src/ext/openexr/IlmBase/Imath/ImathInt64.h

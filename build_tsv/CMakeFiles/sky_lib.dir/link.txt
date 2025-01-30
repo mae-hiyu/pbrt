@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libsky_lib.a CMakeFiles/sky_lib.dir/src/ext/skymodel/ArHosekSkyModel.c.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libsky_lib.a

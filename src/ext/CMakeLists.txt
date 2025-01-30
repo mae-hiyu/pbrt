@@ -178,6 +178,8 @@ set (tsv_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/tsv PARENT_SCOPE)
 
 add_library (tsv_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/tsv/sampling-tsvlight.cpp)
 
+# add_library (tsv_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/tsv/spectrum-tsvlight.cpp)
+
 set_property (TARGET tsv_lib PROPERTY FOLDER "ext")
 
 target_include_directories(tsv_lib PRIVATE ${CMAKE_SOURCE_DIR}/src)
