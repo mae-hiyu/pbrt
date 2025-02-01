@@ -33,6 +33,10 @@
 
 namespace pbrt {
 
+
+Float xAreaRate = 0.437;
+Float yAreaRate = 0.405;
+
 // Spectrum Function Definitions
 Float SpectrumToPhotometric(Spectrum s) {
     // We have to handle RGBIlluminantSpectrum separately here as it's composed of an
@@ -2661,6 +2665,12 @@ PBRT_GPU DenselySampledSpectrum *xGPU, *yGPU, *zGPU;
 #endif
 DenselySampledSpectrum *x, *y, *z;
 
+DenselySampledSpectrum *normalizedX, *normalizedY, *normalizedZ;
+
+PiecewiseLinearSpectrum *xlight, *ylight, *zlight;
+
+PiecewiseLinearSpectrum *xcdf, *ycdf, *zcdf;
+
 namespace {
 
 std::map<std::string, Spectrum> namedSpectra;
@@ -2676,6 +2686,112 @@ void Init(Allocator alloc) {
 
     PiecewiseLinearSpectrum zpls(CIE_lambda, CIE_Z);
     z = alloc.new_object<DenselySampledSpectrum>(&zpls, alloc);
+
+
+    normalizedX = alloc.new_object<DenselySampledSpectrum>(Spectra::X(), alloc);
+    normalizedY = alloc.new_object<DenselySampledSpectrum>(Spectra::Y(), alloc);
+    normalizedZ = alloc.new_object<DenselySampledSpectrum>(Spectra::Z(), alloc);
+
+    Float scaleX = CIE_Y_integral / InnerProduct(normalizedX, &Spectra::Y());
+    Float scaleY = CIE_Y_integral / InnerProduct(normalizedY, &Spectra::Y());
+    Float scaleZ = CIE_Y_integral / InnerProduct(normalizedZ, &Spectra::Y());
+    normalizedX->Scale(scaleX);
+    normalizedY->Scale(scaleY);
+    normalizedZ->Scale(scaleZ); 
+
+    int nSamples = Lambda_max - Lambda_min + 1;
+    PiecewiseLinearSpectrum* f12_spectrum = PiecewiseLinearSpectrum::FromInterleaved(CIE_F12, true, alloc);
+    pstd::vector<Float> wave_1nm;
+    pstd::vector<Float> val_1nm;
+
+    // 1nmごとにループ
+    for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+        wave_1nm.push_back(Float(lambda));
+        Float value = (*f12_spectrum)(Float(lambda));
+        val_1nm.push_back(value);
+    }
+
+    PiecewiseLinearSpectrum light = PiecewiseLinearSpectrum(wave_1nm, val_1nm, alloc);
+
+    pstd::vector<Float> targetLambdas(nSamples);
+    for (int i = 0; i < nSamples; ++i) {
+        targetLambdas[i] = Lambda_min + i;
+    }
+
+    // xlight, ylight, zlight 用の CDF を計算
+    pstd::vector<Float> xCDF((size_t)nSamples, 0.f), yCDF((size_t)nSamples, 0.f), zCDF((size_t)nSamples, 0.f);
+    Float xSum = 0, ySum = 0, zSum = 0;
+
+    for (int i = 1; i < nSamples; ++i) {
+        Float dx = targetLambdas[i] - targetLambdas[i - 1];
+        Float xVal = (*normalizedX)(targetLambdas[i]) * light(targetLambdas[i]);
+        Float yVal = (*normalizedY)(targetLambdas[i]) * light(targetLambdas[i]);
+        Float zVal = (*normalizedZ)(targetLambdas[i]) * light(targetLambdas[i]);
+
+        xSum += 0.5 * (xVal + (*normalizedX)(targetLambdas[i - 1]) * light(targetLambdas[i - 1])) * dx;
+        ySum += 0.5 * (yVal + (*normalizedY)(targetLambdas[i - 1]) * light(targetLambdas[i - 1])) * dx;
+        zSum += 0.5 * (zVal + (*normalizedZ)(targetLambdas[i - 1]) * light(targetLambdas[i - 1])) * dx;
+
+        xCDF[i] = xSum;
+        yCDF[i] = ySum;
+        zCDF[i] = zSum;
+    }
+
+    // CDF を正規化
+    for (int i = 0; i < nSamples; ++i) {
+        xCDF[i] /= xSum;
+        yCDF[i] /= ySum;
+        zCDF[i] /= zSum;
+    }
+
+    Float totalArea = xSum + ySum + zSum;
+
+    // 各チャネルの面積比
+    Float xArea = xSum / totalArea;  // Xチャネルの比率
+    Float yArea = ySum / totalArea;  // Yチャネルの比率
+    Float zArea = zSum / totalArea;  // Zチャネルの比率
+
+    xAreaRate = xArea;
+    yAreaRate = yArea;
+
+    // PiecewiseLinearSpectrum を確保
+    xlight = alloc.new_object<PiecewiseLinearSpectrum>(targetLambdas, xCDF, alloc);
+    ylight = alloc.new_object<PiecewiseLinearSpectrum>(targetLambdas, yCDF, alloc);
+    zlight = alloc.new_object<PiecewiseLinearSpectrum>(targetLambdas, zCDF, alloc);
+
+    pstd::vector<Float> normalizedXCDF((size_t)nSamples, 0.f);
+    Float normalizedXSum = 0;
+    pstd::vector<Float> normalizedYCDF((size_t)nSamples, 0.f);
+    Float normalizedYSum = 0;
+    pstd::vector<Float> normalizedZCDF((size_t)nSamples, 0.f);
+    Float normalizedZSum = 0;
+
+    for (int i = 1; i < nSamples; ++i) {
+        Float dx = targetLambdas[i] - targetLambdas[i - 1];
+        // normalizedX の値のみ使う
+        Float xVal = (*normalizedX)(targetLambdas[i]);
+        Float yVal = (*normalizedY)(targetLambdas[i]);
+        Float zVal = (*normalizedZ)(targetLambdas[i]);
+
+        // Trapz則で積分しながら累積
+        normalizedXSum += 0.5f * (xVal + (*normalizedX)(targetLambdas[i - 1])) * dx;
+        normalizedYSum += 0.5f * (yVal + (*normalizedY)(targetLambdas[i - 1])) * dx;
+        normalizedZSum += 0.5f * (zVal + (*normalizedZ)(targetLambdas[i - 1])) * dx;
+        normalizedXCDF[i] = normalizedXSum;
+        normalizedYCDF[i] = normalizedYSum;
+        normalizedZCDF[i] = normalizedZSum;
+    }
+
+    // CDF を正規化
+    for (int i = 0; i < nSamples; ++i) {
+        normalizedXCDF[i] /= normalizedXSum;
+        normalizedYCDF[i] /= normalizedYSum;
+        normalizedZCDF[i] /= normalizedZSum;
+    }
+
+    xcdf = alloc.new_object<PiecewiseLinearSpectrum>(targetLambdas, normalizedXCDF, alloc);
+    ycdf = alloc.new_object<PiecewiseLinearSpectrum>(targetLambdas, normalizedYCDF, alloc);
+    zcdf = alloc.new_object<PiecewiseLinearSpectrum>(targetLambdas, normalizedZCDF, alloc);
 
 #ifdef PBRT_BUILD_GPU_RENDERER
     if (Options->useGPU) {

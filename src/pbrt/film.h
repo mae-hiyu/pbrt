@@ -111,9 +111,9 @@ class PixelSensor {
             B += L[lambda.x_size + lambda.y_size + i];
         }
         //  std::cout << "x_size, y_size, z_size : " << lambda.x_size << ", " << lambda.y_size << ", " << lambda.z_size << ", " << std::endl;  
-        return 0.536531398 * imagingRatio * XYZFromSensorRGB * RGB(R  ,
-                            G ,
-                            B );
+        return imagingRatio * XYZFromSensorRGB * RGB(R * 471 / 12.0,
+                            G * 471 / 12.0,
+                            B * 471 / 12.0);
         // return imagingRatio * RGB((r_bar.Sample(lambda) * L).Average(),
         //                           (g_bar.Sample(lambda) * L).Average(),
         //                           (b_bar.Sample(lambda) * L).Average());
@@ -230,7 +230,7 @@ class FilmBase {
 
     PBRT_CPU_GPU
     SampledWavelengths SampleWavelengths(Float u) const {
-        SampledWavelengths lambda = SampledWavelengths::SampleTsvLight(u, Lambda_min, Lambda_max);
+        SampledWavelengths lambda = SampledWavelengths::SampleTsv(u, Lambda_min, Lambda_max);
         // std::cout << lambda.ToString() << std::endl;
         return lambda;
     }
@@ -428,7 +428,7 @@ class SpectralFilm : public FilmBase {
 
     PBRT_CPU_GPU
     SampledWavelengths SampleWavelengths(Float u) const {
-        SampledWavelengths lambda = SampledWavelengths::SampleTsvLight(u, Lambda_min, Lambda_max);
+        SampledWavelengths lambda = SampledWavelengths::SampleTsv(u, Lambda_min, Lambda_max);
         // std::cout << lambda.ToString() << std::endl;
         return lambda;
     }
