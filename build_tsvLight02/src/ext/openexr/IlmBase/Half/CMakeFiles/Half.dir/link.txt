@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libHalf-2_5.a CMakeFiles/Half.dir/half.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libHalf-2_5.a

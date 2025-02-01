@@ -95,25 +95,22 @@ class PixelSensor {
     PBRT_CPU_GPU
     RGB ToSensorRGB(SampledSpectrum L, const SampledWavelengths &lambda) const {
 
-        // SampledSpectrum light;
-        // for (int i = 0; i < 12; i++) {
-        //     light[i] = LightPDF(lambda[i]);
-        // }
-        // L = SafeDiv(L,light);
         Float R = 0, G = 0, B = 0;
         for(int i = 0; i < lambda.x_size; ++i) {
-            R += L[i];
+            R += L[i] / 4.0;
+            // std::cout << "L[" << i << "] : " << L[i] << std::endl;
         }
         for(int i = 0; i < lambda.y_size; ++i) {
-            G += L[lambda.x_size + i];
+            G += L[lambda.x_size + i] / 4.0;
         }
         for(int i = 0; i < lambda.z_size; ++i) {
-            B += L[lambda.x_size + lambda.y_size + i];
+            B += L[lambda.x_size + lambda.y_size + i] / 4.0;
         }
+        // std::cout << "R, G, B" << R << G << B << std::endl;
         //  std::cout << "x_size, y_size, z_size : " << lambda.x_size << ", " << lambda.y_size << ", " << lambda.z_size << ", " << std::endl;  
-        return 0.536531398 * imagingRatio * XYZFromSensorRGB * RGB(R,
-                            G ,
-                            B);
+        return imagingRatio * XYZFromSensorRGB * RGB(R * 106.8,
+                            G * 106.3 ,
+                            B * 106.6);
         // return imagingRatio * RGB((r_bar.Sample(lambda) * L).Average(),
         //                           (g_bar.Sample(lambda) * L).Average(),
         //                           (b_bar.Sample(lambda) * L).Average());
@@ -230,7 +227,7 @@ class FilmBase {
 
     PBRT_CPU_GPU
     SampledWavelengths SampleWavelengths(Float u) const {
-        SampledWavelengths lambda = SampledWavelengths::SampleTsvLight(u, Lambda_min, Lambda_max);
+        SampledWavelengths lambda = SampledWavelengths::SampleTsv(u, Lambda_min, Lambda_max);
         // std::cout << lambda.ToString() << std::endl;
         return lambda;
     }
@@ -428,7 +425,7 @@ class SpectralFilm : public FilmBase {
 
     PBRT_CPU_GPU
     SampledWavelengths SampleWavelengths(Float u) const {
-        SampledWavelengths lambda = SampledWavelengths::SampleTsvLight(u, Lambda_min, Lambda_max);
+        SampledWavelengths lambda = SampledWavelengths::SampleTsv(u, Lambda_min, Lambda_max);
         // std::cout << lambda.ToString() << std::endl;
         return lambda;
     }

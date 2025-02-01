@@ -377,20 +377,20 @@ class SampledWavelengths {
     }
 
     for (int i = 0; i < NSpectrumSamples; ++i)
-        swl.pdf[i] = 1 / (lambda_max - lambda_min);
+        swl.pdf[i] = 1.0;
 
     return swl;
     }
 
     PBRT_CPU_GPU
     static SampledWavelengths SampleTsvLight(Float u, Float lambda_min = Lambda_min,
-                                         Float lambda_max = Lambda_max, int total_size = NSpectrumSamples) {
+                                         Float lambda_max = Lambda_max) {
     SampledWavelengths swl;
 
     // 確率に基づいたサンプル数の決定
-    swl.x_size = std::round(total_size * 0.437);
-    swl.y_size = std::round(total_size * 0.405);
-    swl.z_size = total_size - swl.x_size - swl.y_size;  // 誤差調整
+    swl.x_size = (0.437 + u * 0.1) * 12;
+    swl.y_size = (0.405 + u * 0.1) * 12;
+    swl.z_size = NSpectrumSamples - swl.x_size - swl.y_size;  // 誤差調整
 
     for(int i = 0; i < swl.x_size; ++i) {
         Float up = u + Float(i) / swl.x_size;
@@ -415,11 +415,11 @@ class SampledWavelengths {
     }
 
     for (int i = 0; i < NSpectrumSamples; ++i)
-        swl.pdf[i] = 1;
+        swl.pdf[i] = 1.0;
 
     return swl;
 }
-    int x_size, y_size, z_size;
+    int x_size = 4.0, y_size = 4.0, z_size = 4.0;
 
   private:
     // SampledWavelengths Private Members

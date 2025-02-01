@@ -117,7 +117,7 @@ void InitPBRT(const PBRTOptions &opt) {
         ColorEncoding::Init(Allocator{});
         // Before RGBColorSpace::Init!
         Spectra::Init(Allocator{});
-        XYZSpectra::Init(Allocator{});
+        // XYZSpectra::Init(Allocator{});
         RGBToSpectrumTable::Init(Allocator{});
 
         RGBColorSpace::Init(Allocator{});

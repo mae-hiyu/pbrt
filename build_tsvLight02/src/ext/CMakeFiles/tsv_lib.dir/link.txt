@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libtsv_lib.a "CMakeFiles/tsv_lib.dir/tsv/sampling-tsvlight.cpp.o"
-/Library/Developer/CommandLineTools/usr/bin/ranlib libtsv_lib.a

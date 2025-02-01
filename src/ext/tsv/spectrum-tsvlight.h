@@ -10,6 +10,10 @@
 
 namespace pbrt {
 
+static PiecewiseLinearSpectrum *FromInterpolated(
+    pstd::span<const Float> samples, pstd::span<const Float> targetLambdas,
+    bool normalize, Allocator alloc);
+
 class SampledXYZWavelengths : public SampledWavelengths {
   public:
 
@@ -48,14 +52,12 @@ class SampledXYZWavelengths : public SampledWavelengths {
 
     PBRT_CPU_GPU
     static SampledXYZWavelengths SampleTsvLight(Float u, Float lambda_min = Lambda_min,
-                                         Float lambda_max = Lambda_max, int total_size = NSpectrumSamples) {
+                                         Float lambda_max = Lambda_max) {
     SampledXYZWavelengths swl;
-
-    std::rand
     // 確率に基づいたサンプル数の決定
-    swl.x_size = std::round(total_size * 0.437);
-    swl.y_size = std::round(total_size * 0.405);
-    swl.z_size = total_size - swl.x_size - swl.y_size;  // 誤差調整
+    swl.x_size = (0.437 + u * 0.1) * 12;
+    swl.y_size = (0.405 + u * 0.1) * 12;
+    swl.z_size = NSpectrumSamples - swl.x_size - swl.y_size;  // 誤差調整
 
     for(int i = 0; i < swl.x_size; ++i) {
         Float up = u + Float(i) / swl.x_size;
@@ -82,19 +84,52 @@ class SampledXYZWavelengths : public SampledWavelengths {
     }
     return swl;
 }
+    int x_size;
+    int y_size;
+    int z_size;
 
   private:
     // SampledWavelengths Private Members
     friend struct SOA<SampledXYZWavelengths>;
     pstd::array<Float, NSpectrumSamples> lambda, pdf;
-    int x_size;
-    int y_size;
-    int z_size;
 };
 
 namespace XYZSpectra {
 
 void Init(Allocator alloc);
+
+PBRT_CPU_GPU
+inline const DenselySampledSpectrum &NormalizedX() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU DenselySampledSpectrum *normalizedXGPU;
+    return *normalizedXGPU;
+#else
+    extern DenselySampledSpectrum *normalizedX;
+    return *normalizedX;
+#endif
+}
+
+PBRT_CPU_GPU
+inline const DenselySampledSpectrum &NormalizedY() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU DenselySampledSpectrum *normalizedYGPU;
+    return *normalizedYGPU;
+#else
+    extern DenselySampledSpectrum *normalizedY;
+    return *normalizedY;
+#endif
+}
+
+PBRT_CPU_GPU
+inline const DenselySampledSpectrum &NormalizedZ() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU DenselySampledSpectrum *normalizedZGPU;
+    return *normalizedZGPU;
+#else
+    extern DenselySampledSpectrum *normalizedZ;
+    return *normalizedZ;
+#endif
+}
 
 PBRT_CPU_GPU
 inline const PiecewiseLinearSpectrum &Xlight() {
