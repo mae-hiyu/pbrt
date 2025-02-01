@@ -32,12 +32,13 @@
 namespace pbrt {
 
 // Spectrum Constants
-constexpr Float Lambda_min = 360, Lambda_max = 830;
+constexpr Float Lambda_min = 380, Lambda_max = 780;
 
 static const int NSpectrumSamples = 12;
 
 static constexpr Float CIE_Y_integral = 106.856895;
 
+extern Float xAreaRate, yAreaRate;
 
 // Spectrum Definition
 class BlackbodySpectrum;
@@ -824,6 +825,105 @@ inline const DenselySampledSpectrum &Z() {
 #else
     extern DenselySampledSpectrum *z;
     return *z;
+#endif
+}
+
+PBRT_CPU_GPU
+inline const DenselySampledSpectrum& NormalizedX() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU DenselySampledSpectrum* normalizedXGPU;
+    return *normalizedXGPU;
+#else
+    extern DenselySampledSpectrum *normalizedX;
+    return *normalizedX;
+#endif
+}
+
+PBRT_CPU_GPU
+inline const DenselySampledSpectrum& NormalizedY() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU DenselySampledSpectrum* normalizedYGPU;
+    return *normalizedYGPU;
+#else
+    extern DenselySampledSpectrum *normalizedY;
+    return *normalizedY;
+#endif
+}
+
+PBRT_CPU_GPU
+inline const DenselySampledSpectrum& NormalizedZ() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU DenselySampledSpectrum* normalizedZGPU;
+    return *normalizedZGPU;
+#else
+    extern DenselySampledSpectrum *normalizedZ;
+    return *normalizedZ;
+#endif
+}
+
+PBRT_CPU_GPU
+inline const PiecewiseLinearSpectrum& Xlight() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU PiecewiseLinearSpectrum* xlightGPU;
+    return *xlightGPU;
+#else
+    extern PiecewiseLinearSpectrum *xlight;
+    return *xlight;
+#endif
+}
+
+PBRT_CPU_GPU
+inline const PiecewiseLinearSpectrum& Ylight() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU PiecewiseLinearSpectrum* ylightGPU;
+    return *ylightGPU;
+#else
+    extern PiecewiseLinearSpectrum *ylight;
+    return *ylight;
+#endif
+}
+
+PBRT_CPU_GPU
+inline const PiecewiseLinearSpectrum& Zlight() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU PiecewiseLinearSpectrum* zlightGPU;
+    return *zlightGPU;
+#else
+    extern PiecewiseLinearSpectrum *zlight;
+    return *zlight;
+#endif
+}
+
+PBRT_CPU_GPU
+inline const PiecewiseLinearSpectrum& XCDF() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU PiecewiseLinearSpectrum* xcdfGPU;
+    return *xcdfGPU;
+#else
+    extern PiecewiseLinearSpectrum *xcdf;
+    return *xcdf;
+#endif
+}
+
+PBRT_CPU_GPU
+inline const PiecewiseLinearSpectrum& YCDF() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU PiecewiseLinearSpectrum* ycdfGPU;
+    return *ycdfGPU;
+#else
+    extern PiecewiseLinearSpectrum *ycdf;
+    return *ycdf;
+#endif
+}
+
+PBRT_CPU_GPU
+inline const PiecewiseLinearSpectrum& ZCDF() {
+#ifdef PBRT_IS_GPU_CODE
+    extern PBRT_GPU PiecewiseLinearSpectrum* zcdfGPU;
+    return *zcdfGPU;
+#else
+    extern PiecewiseLinearSpectrum *zcdf;
+    return *zcdf;
 #endif
 }
 

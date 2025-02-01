@@ -7,5 +7,7 @@ src/build
 build/
 .cache/
 pbrt-v4-scenes-master
-tsv/
-tsvLight/
+build_tsvLight/
+build_tsvLight02/
+build_tsv/
+

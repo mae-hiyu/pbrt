@@ -108,9 +108,9 @@ class PixelSensor {
         }
         // std::cout << "R, G, B" << R << G << B << std::endl;
         //  std::cout << "x_size, y_size, z_size : " << lambda.x_size << ", " << lambda.y_size << ", " << lambda.z_size << ", " << std::endl;  
-        return imagingRatio * XYZFromSensorRGB * RGB(R * 106.8,
-                            G * 106.3 ,
-                            B * 106.6);
+        return imagingRatio * XYZFromSensorRGB * RGB(R * 471 / 12.0,
+                            G * 471 / 12.0,
+                            B * 471 / 12.0);
         // return imagingRatio * RGB((r_bar.Sample(lambda) * L).Average(),
         //                           (g_bar.Sample(lambda) * L).Average(),
         //                           (b_bar.Sample(lambda) * L).Average());

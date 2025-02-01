@@ -456,12 +456,12 @@ class DiffuseAreaLight : public LightBase {
             return scale * spec.Sample(lambda);
 
         } else {
-            SampledSpectrum uniform;
-            for (int i = 0; i < NSpectrumSamples; ++i)
-                uniform[i] = 1;
-            return scale * uniform;
+            // SampledSpectrum uniform;
+            // for (int i = 0; i < NSpectrumSamples; ++i)
+            //     uniform[i] = 1;
+            // return scale * uniform;
 
-            // return scale * Lemit->Sample(lambda);
+            return scale * Lemit->Sample(lambda);
         }
     }
 
