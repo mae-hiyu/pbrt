@@ -459,7 +459,7 @@ class DiffuseAreaLight : public LightBase {
             SampledSpectrum uniform;
             for (int i = 0; i < NSpectrumSamples; ++i)
                 uniform[i] = 1;
-            return scale * uniform;
+            return uniform;
 
             // return scale * Lemit->Sample(lambda);
         }

@@ -15,6 +15,7 @@
 #include <pbrt/util/print.h>
 #include <pbrt/util/pstd.h>
 #include <pbrt/util/scattering.h>
+#include <pbrt/util/spectrum.h>
 
 #include <algorithm>
 #include <cmath>
@@ -656,10 +657,9 @@ std::string SummedAreaTable::ToString() const {
 }
 
 PBRT_CPU_GPU Float SampleXyzXWavelengths(Float u) {
-  const PiecewiseLinearSpectrum &xSpectrum = Spectra::XCDF();
 
   for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
-      if (u <= xSpectrum(lambda)) {
+      if (u <= Spectra::xCDF[lambda - Lambda_min]) {
           return lambda;
       }
   }
@@ -667,10 +667,9 @@ PBRT_CPU_GPU Float SampleXyzXWavelengths(Float u) {
 }
 
 PBRT_CPU_GPU Float SampleXyzYWavelengths(Float u) {
-  const PiecewiseLinearSpectrum &ySpectrum = Spectra::YCDF();
 
   for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
-      if (u <= ySpectrum(lambda)) {
+      if (u <= Spectra::yCDF[lambda - Lambda_min]) {
           return lambda;
       }
   }
@@ -678,21 +677,17 @@ PBRT_CPU_GPU Float SampleXyzYWavelengths(Float u) {
 }
 
 PBRT_CPU_GPU Float SampleXyzZWavelengths(Float u) {
-  const PiecewiseLinearSpectrum &zSpectrum = Spectra::ZCDF();
-
   for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
-      if (u <= zSpectrum(lambda)) {
+      if (u <= Spectra::zCDF[lambda - Lambda_min]) {
           return lambda;
       }
   }
   return Lambda_max;
 }
-
 PBRT_CPU_GPU Float SampleLightXyzXWavelengths(Float u) {
-  const PiecewiseLinearSpectrum &xSpectrum = Spectra::Xlight();
 
   for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
-      if (u <= xSpectrum(lambda)) {
+      if (u <= Spectra::xLightCDF[lambda - Lambda_min]) {
           return lambda;
       }
   }
@@ -700,10 +695,9 @@ PBRT_CPU_GPU Float SampleLightXyzXWavelengths(Float u) {
 }
 
 PBRT_CPU_GPU Float SampleLightXyzYWavelengths(Float u) {
-  const PiecewiseLinearSpectrum &ySpectrum = Spectra::Ylight();
 
   for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
-      if (u <= ySpectrum(lambda)) {
+      if (u <= Spectra::yLightCDF[lambda - Lambda_min]) {
           return lambda;
       }
   }
@@ -711,15 +705,12 @@ PBRT_CPU_GPU Float SampleLightXyzYWavelengths(Float u) {
 }
 
 PBRT_CPU_GPU Float SampleLightXyzZWavelengths(Float u) {
-  const PiecewiseLinearSpectrum &zSpectrum = Spectra::Zlight();
-
   for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
-      if (u <= zSpectrum(lambda)) {
+      if (u <= Spectra::zLightCDF[lambda - Lambda_min]) {
           return lambda;
       }
   }
   return Lambda_max;
 }
-
 
 }  // namespace pbrt

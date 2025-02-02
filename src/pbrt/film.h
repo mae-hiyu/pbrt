@@ -112,13 +112,18 @@ class PixelSensor {
         // return imagingRatio * RGB(R * 28.32,
         //                     G * 28.32,
         //                     B * 28.32);
-        // return imagingRatio * RGB(R * 0.73 ,
-        //                     G * 0.73,
-        //                     B * 0.73);
+        return imagingRatio * 0.9 * RGB(R ,
+                            G  ,
+                            B );
 
-        return imagingRatio * RGB(R,
-                            G,
-                            B);
+
+        // return imagingRatio * RGB(R,
+        //                     G,
+        //                     B);
+
+        // return imagingRatio * RGB(R * 106.8 /4.0,
+        //                     G * 106.3  /4.0,
+        //                     B * 106.6  /4.0);
         // return imagingRatio * RGB((r_bar.Sample(lambda) * L).Average(),
         //                           (g_bar.Sample(lambda) * L).Average(),
         //                           (b_bar.Sample(lambda) * L).Average());

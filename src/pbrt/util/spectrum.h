@@ -39,7 +39,7 @@ static const int NSpectrumSamples = 12;
 
 static constexpr Float CIE_Y_integral = 106.856895;
 
-extern Float xAreaRate, yAreaRate;
+extern Float xF12, yF12, zF12;
 
 // Spectrum Definition
 class BlackbodySpectrum;
@@ -389,35 +389,9 @@ class SampledWavelengths {
                                          Float lambda_max = Lambda_max) {
     SampledWavelengths swl;
 
-    const double p_x = 0.437;
-    const double p_y = 0.405;
-    const double p_z = 1.0 - p_x - p_y; // = 0.158
-
-    // 累積分布
-    const double cdf_x = p_x;        // 0.437
-    const double cdf_y = p_x + p_y;  // 0.842
-
-    // 乱数生成器の用意
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<> dist(0.0, 1.0);
-
-    swl.x_size = 0;
-    swl.y_size = 0;
-    swl.z_size = 0;
-
-    // 12回繰り返す
-    for(int i = 0; i < NSpectrumSamples; ++i) {
-        double u = dist(gen);  // [0,1) の一様乱数
-
-        if (u < cdf_x) {
-            swl.x_size++;
-        } else if (u < cdf_y) {
-            swl.y_size++;
-        } else {
-            swl.z_size++;
-        }
-    }
+    swl.x_size = (xF12 + u * 0.1) * NSpectrumSamples;
+    swl.y_size = (yF12 + u * 0.1) * NSpectrumSamples;
+    swl.z_size = NSpectrumSamples - swl.x_size - swl.y_size;
 
     for(int i = 0; i < swl.x_size; ++i) {
         Float up = u + Float(i) / swl.x_size;
@@ -819,6 +793,8 @@ inline SampledSpectrum Lerp(Float t, const SampledSpectrum &s1,
 // Spectral Data Declarations
 namespace Spectra {
 
+extern pstd::vector<Float> xCDF, yCDF, zCDF , xLightCDF, yLightCDF, zLightCDF;
+
 void Init(Allocator alloc);
 
 PBRT_CPU_GPU
@@ -851,105 +827,6 @@ inline const DenselySampledSpectrum &Z() {
 #else
     extern DenselySampledSpectrum *z;
     return *z;
-#endif
-}
-
-PBRT_CPU_GPU
-inline const DenselySampledSpectrum& NormalizedX() {
-#ifdef PBRT_IS_GPU_CODE
-    extern PBRT_GPU DenselySampledSpectrum* normalizedXGPU;
-    return *normalizedXGPU;
-#else
-    extern DenselySampledSpectrum *normalizedX;
-    return *normalizedX;
-#endif
-}
-
-PBRT_CPU_GPU
-inline const DenselySampledSpectrum& NormalizedY() {
-#ifdef PBRT_IS_GPU_CODE
-    extern PBRT_GPU DenselySampledSpectrum* normalizedYGPU;
-    return *normalizedYGPU;
-#else
-    extern DenselySampledSpectrum *normalizedY;
-    return *normalizedY;
-#endif
-}
-
-PBRT_CPU_GPU
-inline const DenselySampledSpectrum& NormalizedZ() {
-#ifdef PBRT_IS_GPU_CODE
-    extern PBRT_GPU DenselySampledSpectrum* normalizedZGPU;
-    return *normalizedZGPU;
-#else
-    extern DenselySampledSpectrum *normalizedZ;
-    return *normalizedZ;
-#endif
-}
-
-PBRT_CPU_GPU
-inline const PiecewiseLinearSpectrum& Xlight() {
-#ifdef PBRT_IS_GPU_CODE
-    extern PBRT_GPU PiecewiseLinearSpectrum* xlightGPU;
-    return *xlightGPU;
-#else
-    extern PiecewiseLinearSpectrum *xlight;
-    return *xlight;
-#endif
-}
-
-PBRT_CPU_GPU
-inline const PiecewiseLinearSpectrum& Ylight() {
-#ifdef PBRT_IS_GPU_CODE
-    extern PBRT_GPU PiecewiseLinearSpectrum* ylightGPU;
-    return *ylightGPU;
-#else
-    extern PiecewiseLinearSpectrum *ylight;
-    return *ylight;
-#endif
-}
-
-PBRT_CPU_GPU
-inline const PiecewiseLinearSpectrum& Zlight() {
-#ifdef PBRT_IS_GPU_CODE
-    extern PBRT_GPU PiecewiseLinearSpectrum* zlightGPU;
-    return *zlightGPU;
-#else
-    extern PiecewiseLinearSpectrum *zlight;
-    return *zlight;
-#endif
-}
-
-PBRT_CPU_GPU
-inline const PiecewiseLinearSpectrum& XCDF() {
-#ifdef PBRT_IS_GPU_CODE
-    extern PBRT_GPU PiecewiseLinearSpectrum* xcdfGPU;
-    return *xcdfGPU;
-#else
-    extern PiecewiseLinearSpectrum *xcdf;
-    return *xcdf;
-#endif
-}
-
-PBRT_CPU_GPU
-inline const PiecewiseLinearSpectrum& YCDF() {
-#ifdef PBRT_IS_GPU_CODE
-    extern PBRT_GPU PiecewiseLinearSpectrum* ycdfGPU;
-    return *ycdfGPU;
-#else
-    extern PiecewiseLinearSpectrum *ycdf;
-    return *ycdf;
-#endif
-}
-
-PBRT_CPU_GPU
-inline const PiecewiseLinearSpectrum& ZCDF() {
-#ifdef PBRT_IS_GPU_CODE
-    extern PBRT_GPU PiecewiseLinearSpectrum* zcdfGPU;
-    return *zcdfGPU;
-#else
-    extern PiecewiseLinearSpectrum *zcdf;
-    return *zcdf;
 #endif
 }
 
