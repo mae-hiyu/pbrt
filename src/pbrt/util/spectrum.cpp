@@ -2692,15 +2692,20 @@ void Init(Allocator alloc) {
     normalizedY = alloc.new_object<DenselySampledSpectrum>(Spectra::Y(), alloc);
     normalizedZ = alloc.new_object<DenselySampledSpectrum>(Spectra::Z(), alloc);
 
-    Float scaleX = CIE_Y_integral / InnerProduct(normalizedX, &Spectra::Y());
-    Float scaleY = CIE_Y_integral / InnerProduct(normalizedY, &Spectra::Y());
-    Float scaleZ = CIE_Y_integral / InnerProduct(normalizedZ, &Spectra::Y());
+    Float scaleX = 0.0, scaleY = 0.0, scaleZ = 0.0;
+
+    for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+        scaleX += (*normalizedX)(lambda);
+        scaleY += (*normalizedY)(lambda);
+        scaleZ += (*normalizedZ)(lambda);
+    }
+
     normalizedX->Scale(scaleX);
     normalizedY->Scale(scaleY);
     normalizedZ->Scale(scaleZ); 
 
     int nSamples = Lambda_max - Lambda_min + 1;
-    PiecewiseLinearSpectrum* f12_spectrum = PiecewiseLinearSpectrum::FromInterleaved(CIE_F12, true, alloc);
+    PiecewiseLinearSpectrum* f12_spectrum = PiecewiseLinearSpectrum::FromInterleaved(CIE_F12, false, alloc);
     pstd::vector<Float> wave_1nm;
     pstd::vector<Float> val_1nm;
 
@@ -2711,7 +2716,14 @@ void Init(Allocator alloc) {
         val_1nm.push_back(value);
     }
 
+    Float lightSum = 0.0;
+
+    for (int i = 0; i < Lambda_max - Lambda_min +1; ++i) {
+        lightSum += val_1nm[i];
+    }
     PiecewiseLinearSpectrum light = PiecewiseLinearSpectrum(wave_1nm, val_1nm, alloc);
+
+    light.Scale(lightSum);
 
     pstd::vector<Float> targetLambdas(nSamples);
     for (int i = 0; i < nSamples; ++i) {

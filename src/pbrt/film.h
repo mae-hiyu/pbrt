@@ -97,20 +97,28 @@ class PixelSensor {
 
         Float R = 0, G = 0, B = 0;
         for(int i = 0; i < lambda.x_size; ++i) {
-            R += L[i] / 4.0;
-            // std::cout << "L[" << i << "] : " << L[i] << std::endl;
+            R += L[i];
         }
         for(int i = 0; i < lambda.y_size; ++i) {
-            G += L[lambda.x_size + i] / 4.0;
+            G += L[lambda.x_size + i];
         }
         for(int i = 0; i < lambda.z_size; ++i) {
-            B += L[lambda.x_size + lambda.y_size + i] / 4.0;
+            B += L[lambda.x_size + lambda.y_size + i];
         }
         // std::cout << "R, G, B" << R << G << B << std::endl;
-        //  std::cout << "x_size, y_size, z_size : " << lambda.x_size << ", " << lambda.y_size << ", " << lambda.z_size << ", " << std::endl;  
-        return imagingRatio * XYZFromSensorRGB * RGB(R * 471 / 12.0,
-                            G * 471 / 12.0,
-                            B * 471 / 12.0);
+         std::cout << "x_size, y_size, z_size : " << lambda.x_size << ", " << lambda.y_size << ", " << lambda.z_size << ", " << std::endl;  
+
+
+        // return imagingRatio * RGB(R * 28.32,
+        //                     G * 28.32,
+        //                     B * 28.32);
+        // return imagingRatio * RGB(R * 0.73 ,
+        //                     G * 0.73,
+        //                     B * 0.73);
+
+        return imagingRatio * RGB(R,
+                            G,
+                            B);
         // return imagingRatio * RGB((r_bar.Sample(lambda) * L).Average(),
         //                           (g_bar.Sample(lambda) * L).Average(),
         //                           (b_bar.Sample(lambda) * L).Average());
@@ -227,7 +235,7 @@ class FilmBase {
 
     PBRT_CPU_GPU
     SampledWavelengths SampleWavelengths(Float u) const {
-        SampledWavelengths lambda = SampledWavelengths::SampleTsv(u, Lambda_min, Lambda_max);
+        SampledWavelengths lambda = SampledWavelengths::SampleTsvLight(u, Lambda_min, Lambda_max);
         // std::cout << lambda.ToString() << std::endl;
         return lambda;
     }

@@ -389,8 +389,8 @@ class SampledWavelengths {
     SampledWavelengths swl;
 
     // 確率に基づいたサンプル数の決定
-    swl.x_size = (0.437 + u * 0.1) * 12;
-    swl.y_size = (0.405 + u * 0.1) * 12;
+    swl.x_size = static_cast<int>(std::floor((0.437 + u * 0.1) * 10) / 10 * NSpectrumSamples);
+    swl.y_size = static_cast<int>(std::floor((0.405 + u * 0.1) * 10) / 10 * NSpectrumSamples);
     swl.z_size = NSpectrumSamples - swl.x_size - swl.y_size;  // 誤差調整
 
     for(int i = 0; i < swl.x_size; ++i) {
