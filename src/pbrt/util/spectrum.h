@@ -28,11 +28,12 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <random>
 
 namespace pbrt {
 
 // Spectrum Constants
-constexpr Float Lambda_min = 380, Lambda_max = 780;
+constexpr Float Lambda_min = 360, Lambda_max = 830;
 
 static const int NSpectrumSamples = 12;
 
@@ -388,10 +389,35 @@ class SampledWavelengths {
                                          Float lambda_max = Lambda_max) {
     SampledWavelengths swl;
 
-    // 確率に基づいたサンプル数の決定
-    swl.x_size = static_cast<int>(std::floor((0.437 + u * 0.1) * 10) / 10 * NSpectrumSamples);
-    swl.y_size = static_cast<int>(std::floor((0.405 + u * 0.1) * 10) / 10 * NSpectrumSamples);
-    swl.z_size = NSpectrumSamples - swl.x_size - swl.y_size;  // 誤差調整
+    const double p_x = 0.437;
+    const double p_y = 0.405;
+    const double p_z = 1.0 - p_x - p_y; // = 0.158
+
+    // 累積分布
+    const double cdf_x = p_x;        // 0.437
+    const double cdf_y = p_x + p_y;  // 0.842
+
+    // 乱数生成器の用意
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<> dist(0.0, 1.0);
+
+    swl.x_size = 0;
+    swl.y_size = 0;
+    swl.z_size = 0;
+
+    // 12回繰り返す
+    for(int i = 0; i < NSpectrumSamples; ++i) {
+        double u = dist(gen);  // [0,1) の一様乱数
+
+        if (u < cdf_x) {
+            swl.x_size++;
+        } else if (u < cdf_y) {
+            swl.y_size++;
+        } else {
+            swl.z_size++;
+        }
+    }
 
     for(int i = 0; i < swl.x_size; ++i) {
         Float up = u + Float(i) / swl.x_size;

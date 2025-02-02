@@ -106,7 +106,7 @@ class PixelSensor {
             B += L[lambda.x_size + lambda.y_size + i];
         }
         // std::cout << "R, G, B" << R << G << B << std::endl;
-         std::cout << "x_size, y_size, z_size : " << lambda.x_size << ", " << lambda.y_size << ", " << lambda.z_size << ", " << std::endl;  
+        //  std::cout << "x_size, y_size, z_size : " << lambda.x_size << ", " << lambda.y_size << ", " << lambda.z_size << ", " << std::endl;  
 
 
         // return imagingRatio * RGB(R * 28.32,
