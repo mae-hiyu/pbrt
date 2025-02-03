@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libflip_lib.a CMakeFiles/flip_lib.dir/flip/flip.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libflip_lib.a

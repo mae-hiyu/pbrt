@@ -7,7 +7,7 @@ Film "rgb"
 
 
 Sampler "halton"
-  "integer pixelsamples" [64]
+  "integer pixelsamples" [256]
 Integrator "simplepath"
 
 WorldBegin
@@ -18,6 +18,7 @@ AttributeBegin
 	Translate 0 1.4999 0
 	AreaLightSource "diffuse" 
     "spectrum L" "f12.txt" "float scale" [4.0]
+# "spectrum L" [360 1.0 830 1.0] "float scale" [4.0]
 	Shape "trianglemesh" 
 		"point3 P"
 		[-0.5 0 -0.5   0.5 0 -0.5   0.5 0 0.5   -0.5 0 0.5]

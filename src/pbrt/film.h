@@ -95,11 +95,6 @@ class PixelSensor {
     PBRT_CPU_GPU
     RGB ToSensorRGB(SampledSpectrum L, const SampledWavelengths &lambda) const {
 
-        // SampledSpectrum light;
-        // for (int i = 0; i < 12; i++) {
-        //     light[i] = LightPDF(lambda[i]);
-        // }
-        // L = SafeDiv(L,light);
         Float R = 0, G = 0, B = 0;
         for(int i = 0; i < lambda.x_size; ++i) {
             R += L[i];
@@ -110,10 +105,25 @@ class PixelSensor {
         for(int i = 0; i < lambda.z_size; ++i) {
             B += L[lambda.x_size + lambda.y_size + i];
         }
+        // std::cout << "R, G, B" << R << G << B << std::endl;
         //  std::cout << "x_size, y_size, z_size : " << lambda.x_size << ", " << lambda.y_size << ", " << lambda.z_size << ", " << std::endl;  
-        return imagingRatio * XYZFromSensorRGB * RGB(R * 471 / 12.0,
-                            G * 471 / 12.0,
-                            B * 471 / 12.0);
+
+
+        // return imagingRatio * RGB(R * 28.32,
+        //                     G * 28.32,
+        //                     B * 28.32);
+        // return imagingRatio * 0.9 * RGB(R ,
+        //                     G  ,
+        //                     B );
+
+
+        // return imagingRatio * RGB(R,
+        //                     G,
+        //                     B);
+
+        return imagingRatio * 26.5 * RGB(R,
+                            G ,
+                            B );
         // return imagingRatio * RGB((r_bar.Sample(lambda) * L).Average(),
         //                           (g_bar.Sample(lambda) * L).Average(),
         //                           (b_bar.Sample(lambda) * L).Average());
@@ -428,7 +438,7 @@ class SpectralFilm : public FilmBase {
 
     PBRT_CPU_GPU
     SampledWavelengths SampleWavelengths(Float u) const {
-        SampledWavelengths lambda = SampledWavelengths::SampleTsv(u, Lambda_min, Lambda_max);
+        SampledWavelengths lambda = SampledWavelengths::SampleTsvLight(u, Lambda_min, Lambda_max);
         // std::cout << lambda.ToString() << std::endl;
         return lambda;
     }

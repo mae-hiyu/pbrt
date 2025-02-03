@@ -33,9 +33,7 @@
 
 namespace pbrt {
 
-
-Float xAreaRate = 0.437;
-Float yAreaRate = 0.405;
+Float xF12, yF12, zF12;
 
 // Spectrum Function Definitions
 Float SpectrumToPhotometric(Spectrum s) {
@@ -2665,11 +2663,7 @@ PBRT_GPU DenselySampledSpectrum *xGPU, *yGPU, *zGPU;
 #endif
 DenselySampledSpectrum *x, *y, *z;
 
-DenselySampledSpectrum *normalizedX, *normalizedY, *normalizedZ;
-
-PiecewiseLinearSpectrum *xlight, *ylight, *zlight;
-
-PiecewiseLinearSpectrum *xcdf, *ycdf, *zcdf;
+pstd::vector<Float> xCDF, yCDF, zCDF, xLightCDF, yLightCDF, zLightCDF;
 
 namespace {
 
@@ -2688,111 +2682,7 @@ void Init(Allocator alloc) {
     z = alloc.new_object<DenselySampledSpectrum>(&zpls, alloc);
 
 
-    normalizedX = alloc.new_object<DenselySampledSpectrum>(Spectra::X(), alloc);
-    normalizedY = alloc.new_object<DenselySampledSpectrum>(Spectra::Y(), alloc);
-    normalizedZ = alloc.new_object<DenselySampledSpectrum>(Spectra::Z(), alloc);
-
-    Float scaleX = CIE_Y_integral / InnerProduct(normalizedX, &Spectra::Y());
-    Float scaleY = CIE_Y_integral / InnerProduct(normalizedY, &Spectra::Y());
-    Float scaleZ = CIE_Y_integral / InnerProduct(normalizedZ, &Spectra::Y());
-    normalizedX->Scale(scaleX);
-    normalizedY->Scale(scaleY);
-    normalizedZ->Scale(scaleZ); 
-
-    int nSamples = Lambda_max - Lambda_min + 1;
-    PiecewiseLinearSpectrum* f12_spectrum = PiecewiseLinearSpectrum::FromInterleaved(CIE_F12, true, alloc);
-    pstd::vector<Float> wave_1nm;
-    pstd::vector<Float> val_1nm;
-
-    // 1nmごとにループ
-    for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
-        wave_1nm.push_back(Float(lambda));
-        Float value = (*f12_spectrum)(Float(lambda));
-        val_1nm.push_back(value);
-    }
-
-    PiecewiseLinearSpectrum light = PiecewiseLinearSpectrum(wave_1nm, val_1nm, alloc);
-
-    pstd::vector<Float> targetLambdas(nSamples);
-    for (int i = 0; i < nSamples; ++i) {
-        targetLambdas[i] = Lambda_min + i;
-    }
-
-    // xlight, ylight, zlight 用の CDF を計算
-    pstd::vector<Float> xCDF((size_t)nSamples, 0.f), yCDF((size_t)nSamples, 0.f), zCDF((size_t)nSamples, 0.f);
-    Float xSum = 0, ySum = 0, zSum = 0;
-
-    for (int i = 1; i < nSamples; ++i) {
-        Float dx = targetLambdas[i] - targetLambdas[i - 1];
-        Float xVal = (*normalizedX)(targetLambdas[i]) * light(targetLambdas[i]);
-        Float yVal = (*normalizedY)(targetLambdas[i]) * light(targetLambdas[i]);
-        Float zVal = (*normalizedZ)(targetLambdas[i]) * light(targetLambdas[i]);
-
-        xSum += 0.5 * (xVal + (*normalizedX)(targetLambdas[i - 1]) * light(targetLambdas[i - 1])) * dx;
-        ySum += 0.5 * (yVal + (*normalizedY)(targetLambdas[i - 1]) * light(targetLambdas[i - 1])) * dx;
-        zSum += 0.5 * (zVal + (*normalizedZ)(targetLambdas[i - 1]) * light(targetLambdas[i - 1])) * dx;
-
-        xCDF[i] = xSum;
-        yCDF[i] = ySum;
-        zCDF[i] = zSum;
-    }
-
-    // CDF を正規化
-    for (int i = 0; i < nSamples; ++i) {
-        xCDF[i] /= xSum;
-        yCDF[i] /= ySum;
-        zCDF[i] /= zSum;
-    }
-
-    Float totalArea = xSum + ySum + zSum;
-
-    // 各チャネルの面積比
-    Float xArea = xSum / totalArea;  // Xチャネルの比率
-    Float yArea = ySum / totalArea;  // Yチャネルの比率
-    Float zArea = zSum / totalArea;  // Zチャネルの比率
-
-    xAreaRate = xArea;
-    yAreaRate = yArea;
-
-    // PiecewiseLinearSpectrum を確保
-    xlight = alloc.new_object<PiecewiseLinearSpectrum>(targetLambdas, xCDF, alloc);
-    ylight = alloc.new_object<PiecewiseLinearSpectrum>(targetLambdas, yCDF, alloc);
-    zlight = alloc.new_object<PiecewiseLinearSpectrum>(targetLambdas, zCDF, alloc);
-
-    pstd::vector<Float> normalizedXCDF((size_t)nSamples, 0.f);
-    Float normalizedXSum = 0;
-    pstd::vector<Float> normalizedYCDF((size_t)nSamples, 0.f);
-    Float normalizedYSum = 0;
-    pstd::vector<Float> normalizedZCDF((size_t)nSamples, 0.f);
-    Float normalizedZSum = 0;
-
-    for (int i = 1; i < nSamples; ++i) {
-        Float dx = targetLambdas[i] - targetLambdas[i - 1];
-        // normalizedX の値のみ使う
-        Float xVal = (*normalizedX)(targetLambdas[i]);
-        Float yVal = (*normalizedY)(targetLambdas[i]);
-        Float zVal = (*normalizedZ)(targetLambdas[i]);
-
-        // Trapz則で積分しながら累積
-        normalizedXSum += 0.5f * (xVal + (*normalizedX)(targetLambdas[i - 1])) * dx;
-        normalizedYSum += 0.5f * (yVal + (*normalizedY)(targetLambdas[i - 1])) * dx;
-        normalizedZSum += 0.5f * (zVal + (*normalizedZ)(targetLambdas[i - 1])) * dx;
-        normalizedXCDF[i] = normalizedXSum;
-        normalizedYCDF[i] = normalizedYSum;
-        normalizedZCDF[i] = normalizedZSum;
-    }
-
-    // CDF を正規化
-    for (int i = 0; i < nSamples; ++i) {
-        normalizedXCDF[i] /= normalizedXSum;
-        normalizedYCDF[i] /= normalizedYSum;
-        normalizedZCDF[i] /= normalizedZSum;
-    }
-
-    xcdf = alloc.new_object<PiecewiseLinearSpectrum>(targetLambdas, normalizedXCDF, alloc);
-    ycdf = alloc.new_object<PiecewiseLinearSpectrum>(targetLambdas, normalizedYCDF, alloc);
-    zcdf = alloc.new_object<PiecewiseLinearSpectrum>(targetLambdas, normalizedZCDF, alloc);
-
+    
 #ifdef PBRT_BUILD_GPU_RENDERER
     if (Options->useGPU) {
         CUDA_CHECK(cudaMemcpyToSymbol(xGPU, &x, sizeof(x)));
@@ -3025,9 +2915,155 @@ void Init(Allocator alloc) {
          PiecewiseLinearSpectrum::FromInterleaved(sony_ilce_9_g, false, alloc)},
         {"sony_ilce_9_b",
          PiecewiseLinearSpectrum::FromInterleaved(sony_ilce_9_b, false, alloc)}};
-}
 
+
+    // ---- 2) xCDF, yCDF, zCDF のメモリを確保 ----
+    int n = Lambda_max - Lambda_min + 1;
+    xCDF.resize(n);
+    yCDF.resize(n);
+    zCDF.resize(n);
+    xLightCDF.resize(n);
+    yLightCDF.resize(n);
+    zLightCDF.resize(n);
+
+    // ---- 3) xCDF の計算 (サンプルの合計→正規化→累積) ----
+    {
+        // 3.1) x の全波長の合計をとる
+        Float sumX = 0.f;
+        for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+            sumX += (*x)(lambda);
+        }
+        Float invSumX = (sumX > 0.f) ? 1.f / sumX : 0.f;
+
+        // 3.2) 累積しながら CDF を作る
+        Float cumsum = 0.f;
+        for (int i = 0; i < n; ++i) {
+            int lambda = Lambda_min + i;
+            cumsum += (*x)(lambda) * invSumX;  // 正規化
+            xCDF[i] = cumsum;
+        }
+        // 浮動小数点誤差対策で最後は 1 にしておく
+        xCDF[n-1] = 1.f;
+    }
+
+    // ---- 4) yCDF の計算 ----
+    {
+        Float sumY = 0.f;
+        for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+            sumY += (*y)(lambda);
+        }
+        Float invSumY = (sumY > 0.f) ? 1.f / sumY : 0.f;
+
+        Float cumsum = 0.f;
+        for (int i = 0; i < n; ++i) {
+            int lambda = Lambda_min + i;
+            cumsum += (*y)(lambda) * invSumY;
+            yCDF[i] = cumsum;
+        }
+        yCDF[n-1] = 1.f;
+    }
+
+    // ---- 5) zCDF の計算 ----
+    {
+        Float sumZ = 0.f;
+        for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+            sumZ += (*z)(lambda);
+        }
+        Float invSumZ = (sumZ > 0.f) ? 1.f / sumZ : 0.f;
+
+        Float cumsum = 0.f;
+        for (int i = 0; i < n; ++i) {
+            int lambda = Lambda_min + i;
+            cumsum += (*z)(lambda) * invSumZ;
+            zCDF[i] = cumsum;
+        }
+        zCDF[n-1] = 1.f;
+    }
+
+// (X(λ) * f12(λ)) をまず一括で合計し、その総和で正規化してCDFを作る
+    {
+        const DenselySampledSpectrum &xSpectrum = Spectra::X();
+        const Spectrum f12 = GetNamedSpectrum("f12");
+
+        // 1) xSpectrum(λ)*f12(λ) の合計をとる
+        Float sumXF12 = 0.f;
+        for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+            sumXF12 += xSpectrum(lambda) * f12(lambda);
+        }
+        Float invSumXF12 = 1.f / sumXF12;
+
+        xF12 = sumXF12;
+
+        // 2) CDF作成
+        int n = Lambda_max - Lambda_min + 1;
+        xLightCDF.resize(n);
+
+        Float cumsum = 0.f;
+        for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+            // X*f12の積をまとめて正規化
+            Float pdfVal = xSpectrum(lambda) * f12(lambda) * invSumXF12;
+            cumsum += pdfVal;
+            xLightCDF[lambda - Lambda_min] = cumsum;
+        }
+
+        // 誤差対策で最後を1.0に
+        xLightCDF[n - 1] = 1.f;
+    }
+    {
+        const DenselySampledSpectrum &ySpectrum = Spectra::Y();
+        const Spectrum f12 = GetNamedSpectrum("f12");
+
+        // (ySpectrum(λ)*f12(λ)) の合計
+        Float sumYF12 = 0.f;
+        for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+            sumYF12 += ySpectrum(lambda) * f12(lambda);
+        }
+        Float invSumYF12 = 1.f / sumYF12;
+
+        yF12 = sumYF12;
+
+        yLightCDF.resize(n);
+
+        Float cumsum = 0.f;
+        for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+            Float pdfVal = ySpectrum(lambda) * f12(lambda) * invSumYF12;
+            cumsum += pdfVal;
+            yLightCDF[lambda - Lambda_min] = cumsum;
+        }
+        yLightCDF[n - 1] = 1.f;
+    }
+
+    {
+        const DenselySampledSpectrum &zSpectrum = Spectra::Z();
+        const Spectrum f12 = GetNamedSpectrum("f12");
+
+        Float sumZF12 = 0.f;
+        for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+            sumZF12 += zSpectrum(lambda) * f12(lambda);
+        }
+        Float invSumZF12 = 1.f / sumZF12;
+
+        zF12 = sumZF12;
+
+        zLightCDF.resize(n);
+
+        Float cumsum = 0.f;
+        for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
+            Float pdfVal = zSpectrum(lambda) * f12(lambda) * invSumZF12;
+            cumsum += pdfVal;
+            zLightCDF[lambda - Lambda_min] = cumsum;
+        }
+        zLightCDF[n - 1] = 1.f;
+    }
+    Float xf12 = xF12, yf12 = yF12, zf12 = zF12;
+    xF12 = xf12 / (xf12 + yf12 + zf12);
+    yF12 = yf12 / (xf12 + yf12 + zf12);
+    zF12 = yf12 / (xf12 + yf12 + zf12);
+
+    std::cout << "x, y, z : " << xF12 << " " << yF12 << " " << zF12 << std::endl;
 }  // namespace Spectra
+};
+
 
 Spectrum GetNamedSpectrum(std::string name) {
     auto iter = Spectra::namedSpectra.find(name);

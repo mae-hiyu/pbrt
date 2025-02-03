@@ -10,4 +10,6 @@ pbrt-v4-scenes-master
 build_tsvLight/
 build_tsvLight02/
 build_tsv/
+tsv/
+tsvLight/
 
