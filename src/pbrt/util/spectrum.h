@@ -29,17 +29,22 @@
 #include <vector>
 #include <iostream>
 #include <random>
+#include <fstream>
 
 namespace pbrt {
 
 // Spectrum Constants
 constexpr Float Lambda_min = 380, Lambda_max = 780;
 
-static const int NSpectrumSamples = 12;
+static const int NSpectrumSamples = 15;
 
 static constexpr Float CIE_Y_integral = 106.856895;
 
 extern Float xF12, yF12, zF12;
+
+extern Float xSum, ySum, zSum;
+
+extern int x_sizeSum, y_sizeSum, z_sizeSum;
 
 // Spectrum Definition
 class BlackbodySpectrum;
@@ -389,10 +394,37 @@ class SampledWavelengths {
                                          Float lambda_max = Lambda_max) {
     SampledWavelengths swl;
 
-    swl.x_size = (xF12 + u * 0.1) * NSpectrumSamples;
-    swl.y_size = (yF12 + u * 0.1) * NSpectrumSamples;
-    swl.z_size = NSpectrumSamples - swl.x_size - swl.y_size;
+    // swl.x_size = (xF12 + u * 0.1) * NSpectrumSamples;
+    // swl.z_size = (zF12 + u * 0.1) * NSpectrumSamples;
+    // swl.y_size = NSpectrumSamples - swl.x_size - swl.z_size;
+    Float xf12 = xF12, yf12 = yF12, zf12 = zF12;
+    xf12 = xF12 / (xF12 + yF12 + zF12);
+    yf12 = yF12 / (xF12 + yF12 + zF12);
+    zf12 = zF12 / (xF12 + yF12 + zF12);
 
+    int size = static_cast<int>(u * 100) % 3;
+    switch (size) {
+        case 0:
+            {
+                swl.x_size = (xf12 * NSpectrumSamples) + u;
+                swl.y_size = (yf12 * NSpectrumSamples) + u;
+                swl.z_size = NSpectrumSamples - swl.x_size - swl.y_size;
+            }
+        case 1:
+            {
+                swl.x_size = (xf12 * NSpectrumSamples) + u;
+                swl.z_size = (zf12 * NSpectrumSamples) + u;
+                swl.y_size = NSpectrumSamples - swl.x_size - swl.z_size;                
+            }
+        case 2:
+            {
+                swl.y_size = (yf12 * NSpectrumSamples) + u;
+                swl.z_size = (zf12 * NSpectrumSamples) + u;
+                swl.x_size = NSpectrumSamples - swl.y_size - swl.z_size;
+            }
+        
+    }
+ 
         for(int i = 0; i < swl.x_size; ++i) {
             Float up = u + Float(i) / swl.x_size;
             if(up > 1) up -= 1;
@@ -421,7 +453,7 @@ class SampledWavelengths {
         return swl;
     }
 
-    int x_size=4, y_size=4, z_size=4;
+    int x_size = NSpectrumSamples / 3.0, y_size = NSpectrumSamples / 3.0, z_size = NSpectrumSamples / 3.0;
 
   private:
     // SampledWavelengths Private Members

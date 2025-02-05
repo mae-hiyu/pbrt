@@ -172,23 +172,15 @@ PBRT_CPU_GPU inline Float SampleVisibleWavelengths(Float u) {
 
 PBRT_CPU_GPU Float SampleXyzXWavelengths(Float u);
 
-PBRT_CPU_GPU Float XyzXWavelengthsPDF(Float lambda);
-
 PBRT_CPU_GPU Float SampleXyzYWavelengths(Float u);
 
-PBRT_CPU_GPU Float XyzYWavelengthsPDF(Float lambda);
-
 PBRT_CPU_GPU Float SampleXyzZWavelengths(Float u);
-
-PBRT_CPU_GPU Float XyzZWavelengthsPDF(Float lambda);
 
 PBRT_CPU_GPU Float SampleLightXyzXWavelengths(Float u);
 
 PBRT_CPU_GPU Float SampleLightXyzYWavelengths(Float u);
 
 PBRT_CPU_GPU Float SampleLightXyzZWavelengths(Float u);
-
-PBRT_CPU_GPU Float LightPDF(Float lambda);
 
 PBRT_CPU_GPU inline pstd::array<Float, 3> SampleUniformTriangle(Point2f u) {
     Float b0, b1;

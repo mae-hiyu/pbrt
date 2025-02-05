@@ -105,8 +105,14 @@ class PixelSensor {
         for(int i = 0; i < lambda.z_size; ++i) {
             B += L[lambda.x_size + lambda.y_size + i];
         }
-        // std::cout << "R, G, B" << R << G << B << std::endl;
-        //  std::cout << "x_size, y_size, z_size : " << lambda.x_size << ", " << lambda.y_size << ", " << lambda.z_size << ", " << std::endl;  
+
+        // R = R * (3.0 / NSpectrumSamples) * xSum;
+        // G = G * (3.0 / NSpectrumSamples) * ySum;
+        // B = B * (3.0 / NSpectrumSamples) * zSum;
+
+        // std::cout << "R, G, B : " << R << ", " << G << ", " << B << std::endl;
+        
+        // std::cout << "x_size, y_size, z_size : " << lambda.x_size << ", " << lambda.y_size << ", " << lambda.z_size << ", " << std::endl;
 
 
         // return imagingRatio * RGB(R * 28.32,
@@ -116,14 +122,10 @@ class PixelSensor {
         //                     G  ,
         //                     B );
 
-
-        // return imagingRatio * RGB(R,
-        //                     G,
-        //                     B);
-
-        return imagingRatio * 26.5 * RGB(R,
+        return imagingRatio * (1 / 106.0) *RGB(R ,
                             G ,
                             B );
+
         // return imagingRatio * RGB((r_bar.Sample(lambda) * L).Average(),
         //                           (g_bar.Sample(lambda) * L).Average(),
         //                           (b_bar.Sample(lambda) * L).Average());
@@ -240,7 +242,7 @@ class FilmBase {
 
     PBRT_CPU_GPU
     SampledWavelengths SampleWavelengths(Float u) const {
-        SampledWavelengths lambda = SampledWavelengths::SampleTsv(u, Lambda_min, Lambda_max);
+        SampledWavelengths lambda = SampledWavelengths::SampleTsvLight(u, Lambda_min, Lambda_max);
         // std::cout << lambda.ToString() << std::endl;
         return lambda;
     }

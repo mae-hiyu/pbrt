@@ -457,11 +457,12 @@ class DiffuseAreaLight : public LightBase {
 
         } else {
             SampledSpectrum uniform;
-            // for (int i = 0; i < NSpectrumSamples; ++i)
-            //     uniform[i] = 1;
-            // return scale * uniform;
+            for (int i = 0; i < NSpectrumSamples; ++i)
+                uniform[i] = 1;
+            // std::cout << "scale : " << scale << std::endl;
+            return scale * uniform;
 
-            return scale * Lemit->Sample(lambda);
+            // return scale * Lemit->Sample(lambda);
         }
     }
 

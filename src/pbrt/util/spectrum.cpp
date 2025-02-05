@@ -34,6 +34,8 @@
 namespace pbrt {
 
 Float xF12, yF12, zF12;
+Float xSum,ySum,zSum;
+int x_sizeSum = 0, y_sizeSum = 0, z_sizeSum = 0;
 
 // Spectrum Function Definitions
 Float SpectrumToPhotometric(Spectrum s) {
@@ -1209,6 +1211,10 @@ const Float CIE_F12[] = {
     770, 0.000264639,
     775, 0.000176426,
     780, 0.0000882,
+};
+
+const Float Cold_White_LED[] = {
+360.0,0.0,365.0,0.0,370.0,0.0,375.0,0.0,380.0,4.6217391304347824e-06,385.0,5.686086956521739e-06,390.0,2.039826086956522e-06,395.0,2.328695652173913e-06,400.0,6.02608695652174e-06,405.0,5.458260869565217e-06,410.0,1.4362043478260869e-05,415.0,3.983608695652174e-05,420.0,9.863218181818181e-05,425.0,0.00020679913043478263,430.0,0.00040532347826086957,435.0,0.0006889274347826088,440.0,0.0010987983181818181,445.0,0.0017154155217391305,450.0,0.002047918913043478,455.0,0.0016681847272727271,460.0,0.0011358065217391305,465.0,0.0008266857727272728,470.0,0.0006113944347826087,475.0,0.00044762795454545454,480.0,0.00038140665217391306,485.0,0.00035364413636363633,490.0,0.0003451291363636364,495.0,0.00041332217391304346,500.0,0.0005072708636363637,505.0,0.0006431172727272726,510.0,0.0007812515652173913,515.0,0.0009201824545454546,520.0,0.0010489412272727274,525.0,0.0011173203636363636,530.0,0.0011752110909090908,535.0,0.0012076829545454545,540.0,0.0012621154347826086,545.0,0.0012877872272727272,550.0,0.0013100174545454546,555.0,0.0013075518181818182,560.0,0.001280704681818182,565.0,0.0012696968181818181,570.0,0.0012124313636363638,575.0,0.001190131,580.0,0.0011558035454545454,585.0,0.001122309181818182,590.0,0.001077420409090909,595.0,0.001024268,600.0,0.0009764890454545455,605.0,0.0009209090952380952,610.0,0.0008566453181818183,615.0,0.0007967421363636363,620.0,0.0007377838636363636,625.0,0.0006834597619047619,630.0,0.0006279325454545455,635.0,0.0005695335714285714,640.0,0.0005048620454545454,645.0,0.00045246113636363634,650.0,0.0004187284285714286,655.0,0.00039659663636363636,660.0,0.0003362332857142857,665.0,0.00030059849999999996,670.0,0.0002667065238095238,675.0,0.00023593336363636363,680.0,0.00020718861904761902,685.0,0.00018584427272727274,690.0,0.0001622635238095238,695.0,0.0001416182380952381,700.0,0.0001236438181818182,705.0,0.00010852004761904763,710.0,9.505257142857142e-05,715.0,8.385909090909091e-05,720.0,7.25047619047619e-05,725.0,6.446190476190477e-05,730.0,5.413636363636363e-05,735.0,4.769047619047619e-05,740.0,4.049047619047619e-05,745.0,3.633809523809524e-05,750.0,3.071428571428571e-05,755.0,2.521818181818182e-05,760.0,2.3195238095238096e-05,765.0,1.8495238095238097e-05,770.0,1.5326619047619046e-05,775.0,1.0481904761904762e-05,780.0,1.1504761904761904e-05,785.0,8.995714285714285e-06,790.0,4.458761904761905e-06,795.0,6.127619047619047e-06,800.0,4.339523809523809e-06,805.0,3.7737142857142855e-06,810.0,6.0746e-06,815.0,2.9564285714285713e-06,820.0,3.3357142857142857e-06,825.0,1.5293333333333335e-06,830.0,0.0
 };
 
 const Float Ag_eta[] = {
@@ -2723,7 +2729,9 @@ void Init(Allocator alloc) {
     Spectrum illumf12 =
         PiecewiseLinearSpectrum::FromInterleaved(CIE_Illum_F12, true, alloc);
     Spectrum f12 = 
-        PiecewiseLinearSpectrum::FromInterleaved(CIE_F12, true, alloc);
+        PiecewiseLinearSpectrum::FromInterleaved(CIE_F12, false, alloc);
+    Spectrum led =
+        PiecewiseLinearSpectrum::FromInterleaved(Cold_White_LED, false, alloc);
 
     Spectrum ageta = PiecewiseLinearSpectrum::FromInterleaved(Ag_eta, false, alloc);
     Spectrum agk = PiecewiseLinearSpectrum::FromInterleaved(Ag_k, false, alloc);
@@ -2794,6 +2802,7 @@ void Init(Allocator alloc) {
         {"stdillum-F11", illumf11},
         {"stdillum-F12", illumf12},
         {"f12", f12},
+        {"led", led},
 
         {"illum-acesD60", illumacesd60},
 
@@ -2935,6 +2944,9 @@ void Init(Allocator alloc) {
         }
         Float invSumX = (sumX > 0.f) ? 1.f / sumX : 0.f;
 
+        xSum = sumX;
+        std::cout << "xSum : " << xSum << std::endl;
+
         // 3.2) 累積しながら CDF を作る
         Float cumsum = 0.f;
         for (int i = 0; i < n; ++i) {
@@ -2954,6 +2966,9 @@ void Init(Allocator alloc) {
         }
         Float invSumY = (sumY > 0.f) ? 1.f / sumY : 0.f;
 
+        ySum = sumY;
+        std::cout << "ySum : " << ySum << std::endl;
+
         Float cumsum = 0.f;
         for (int i = 0; i < n; ++i) {
             int lambda = Lambda_min + i;
@@ -2971,6 +2986,9 @@ void Init(Allocator alloc) {
         }
         Float invSumZ = (sumZ > 0.f) ? 1.f / sumZ : 0.f;
 
+        zSum = sumZ;
+        std::cout << "zSum" << zSum << std::endl;
+
         Float cumsum = 0.f;
         for (int i = 0; i < n; ++i) {
             int lambda = Lambda_min + i;
@@ -2983,7 +3001,7 @@ void Init(Allocator alloc) {
 // (X(λ) * f12(λ)) をまず一括で合計し、その総和で正規化してCDFを作る
     {
         const DenselySampledSpectrum &xSpectrum = Spectra::X();
-        const Spectrum f12 = GetNamedSpectrum("f12");
+        const Spectrum f12 = GetNamedSpectrum("led");
 
         // 1) xSpectrum(λ)*f12(λ) の合計をとる
         Float sumXF12 = 0.f;
@@ -3011,7 +3029,7 @@ void Init(Allocator alloc) {
     }
     {
         const DenselySampledSpectrum &ySpectrum = Spectra::Y();
-        const Spectrum f12 = GetNamedSpectrum("f12");
+        const Spectrum f12 = GetNamedSpectrum("led");
 
         // (ySpectrum(λ)*f12(λ)) の合計
         Float sumYF12 = 0.f;
@@ -3035,7 +3053,7 @@ void Init(Allocator alloc) {
 
     {
         const DenselySampledSpectrum &zSpectrum = Spectra::Z();
-        const Spectrum f12 = GetNamedSpectrum("f12");
+        const Spectrum f12 = GetNamedSpectrum("led");
 
         Float sumZF12 = 0.f;
         for (int lambda = Lambda_min; lambda <= Lambda_max; ++lambda) {
@@ -3055,10 +3073,10 @@ void Init(Allocator alloc) {
         }
         zLightCDF[n - 1] = 1.f;
     }
-    Float xf12 = xF12, yf12 = yF12, zf12 = zF12;
-    xF12 = xf12 / (xf12 + yf12 + zf12);
-    yF12 = yf12 / (xf12 + yf12 + zf12);
-    zF12 = yf12 / (xf12 + yf12 + zf12);
+    // Float xf12 = xF12, yf12 = yF12, zf12 = zF12;
+    // xF12 = xf12 / (xf12 + yf12 + zf12);
+    // yF12 = yf12 / (xf12 + yf12 + zf12);
+    // zF12 = zf12 / (xf12 + yf12 + zf12);
 
     std::cout << "x, y, z : " << xF12 << " " << yF12 << " " << zF12 << std::endl;
 }  // namespace Spectra
