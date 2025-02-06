@@ -97,13 +97,13 @@ class PixelSensor {
 
         Float R = 0, G = 0, B = 0;
         for(int i = 0; i < lambda.x_size; ++i) {
-            R += L[i];
+            R += L[i]/ NSpectrumSamples;
         }
         for(int i = 0; i < lambda.y_size; ++i) {
-            G += L[lambda.x_size + i];
+            G += L[lambda.x_size + i]/ NSpectrumSamples;
         }
         for(int i = 0; i < lambda.z_size; ++i) {
-            B += L[lambda.x_size + lambda.y_size + i];
+            B += L[lambda.x_size + lambda.y_size + i]/NSpectrumSamples;
         }
 
         // R = R * (3.0 / NSpectrumSamples) * xSum;
@@ -122,9 +122,9 @@ class PixelSensor {
         //                     G  ,
         //                     B );
 
-        return imagingRatio * (1 / 106.0) *RGB(R ,
-                            G ,
-                            B );
+        return imagingRatio * 0.8 * 3 * RGB(R * ySum ,
+                            G * ySum,
+                            B * ySum);
 
         // return imagingRatio * RGB((r_bar.Sample(lambda) * L).Average(),
         //                           (g_bar.Sample(lambda) * L).Average(),
